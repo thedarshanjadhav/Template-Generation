@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  height: 80px;
+  background-color: green;
+  font-size: 26px;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+}
+
+input {
+  border: 1px solid #000000;
+}
+
+.full-body {
+  padding-top: 10px;
+  height: calc(100vh - 80px);
+  overflow: scroll;
+}
