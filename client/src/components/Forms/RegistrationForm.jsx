@@ -14,7 +14,7 @@ export default function RegistrationFrom() {
     <VStack w='100%' >
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack gap={2} border='2px solid black' padding='10px'>
-        <Flex gap={2}>
+        {/* <Flex gap={2}>
           <label>Name</label>
           <VStack>
             <input
@@ -26,7 +26,7 @@ export default function RegistrationFrom() {
               <p style={{color:'red', fontSize:'12px'}} role="alert">{errors.name.message}</p>
             )}
           </VStack>
-        </Flex>
+        </Flex> */}
       
         <Flex gap={2}>
           <label>Email </label>

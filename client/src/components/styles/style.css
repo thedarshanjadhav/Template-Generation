@@ -5,10 +5,11 @@
 
 .nav {
   height: 80px;
+  width: 100%;
   background-color: green;
   font-size: 26px;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   position: sticky;
 }
 
