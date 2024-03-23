@@ -1,4 +1,3 @@
-// index.js
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -20,17 +19,26 @@ app.post('/generate-template', (req, res) => {
 
         const modifiedTemplate = data.replace('{{NAME}}', name);
 
-        const output = fs.createWriteStream(`./public/${name}-${template}-portfolio-template.zip`);
+        // Create an in-memory stream for the ZIP file
+        const zipStream = new require('stream').PassThrough();
+
         const archive = archiver('zip', {
             zlib: { level: 9 }
         });
 
-        archive.pipe(output);
+        // Pipe the archive to the in-memory stream
+        archive.pipe(zipStream);
         archive.append(modifiedTemplate, { name: 'index.html' });
         archive.finalize();
 
-        const downloadLink = `http://localhost:3001/${name}-${template}-portfolio-template.zip`;
-        res.json({ downloadLink });
+        // Set the appropriate headers for the response
+        res.set({
+            'Content-Type': 'application/zip',
+            'Content-Disposition': `attachment; filename="${name}-${template}-portfolio-template.zip"`
+        });
+
+        // Pipe the in-memory stream to the response
+        zipStream.pipe(res);
     });
 });
 

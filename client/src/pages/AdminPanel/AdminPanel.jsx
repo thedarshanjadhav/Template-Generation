@@ -17,19 +17,41 @@ export default function AdminPanel() {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await axios.post('http://localhost:3001/generate-template', formData);
+            const response = await axios.post('http://localhost:3001/generate-template', formData, {
+                responseType: 'blob', // Set response type to blob
+            });
+
+            // Create a blob object from the response data
+            const blob = new Blob([response.data]);
+
+            // Create a temporary URL for the blob object
+            const url = window.URL.createObjectURL(blob);
+
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `${formData.name}-${formData.template}-portfolio-template.zip`);
+
+            // Trigger a click event on the link to initiate download
+            document.body.appendChild(link);
+            link.click();
+
+            // Clean up by removing the link and revoking the URL object
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+
             setSuccessMessage('Template successfully created!');
             setIsLoading(false);
             setTimeout(() => {
                 setSuccessMessage('');
-            }, 3000); 
-            setFormData(initialFormData); 
+            }, 3000);
+            setFormData(initialFormData);
         } catch (error) {
             setErrorMessage('Error generating template. Please try again.');
             setIsLoading(false);
             setTimeout(() => {
                 setErrorMessage('');
-            }, 3000); 
+            }, 3000);
         }
     };
 
