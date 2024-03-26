@@ -75,7 +75,7 @@ export default function AdminPanel() {
                     <VStack gap={2} border="2px solid black" padding="10px">
                         <Flex gap={2}>
                             <label>Name</label>
-                            <input name="name" type="text" value={formData.name} onChange={handleChange} />
+                            <input name="name" type="text" value={formData.name} required onChange={handleChange} />
                         </Flex>
                         <Flex gap={2}>
                             <label>Template</label>
