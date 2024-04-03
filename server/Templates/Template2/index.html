@@ -1,44 +1,1039 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Template 2</title>
-    <style>
-      /* Basic styles for demonstration */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: #666;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-      }
-      .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 0 20px;
-      }
-      .content {
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Portfolio Template 2</h1>
-    </header>
-    <div class="container">
-      <div class="content">
-        <p>
-          This is another basic portfolio template for
-          <span id="namePlaceholder">{{NAME}}</span>. Replace this content with
-          your own.
-        </p>
-      </div>
-    </div>
-  </body>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+    <head>
+        
+        <!-- <title>Ruparel Celestia Mulund(E) | Mumbai</title> -->
+        <title>{{TITLE}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content=" The Eastern Express Highway provides access to Ruparel Celestia Mulund East, which has been updated to Ruparel Mulund East. 
+  It also has good connectivity through the Central Railway and the upcoming metro.">
+        <meta name="keywords"
+            content="1bhk in mulund, 2bhk in mulund, 1+1 jodi flat, flats in mulund, Ruparel celestia, flats near EEH">
+        <link rel="shortcut icon" href="img/title-logo.png" type="image/x-icon" />
+        <link rel="canonical" href="https://www.avantheritagejvlr.com" /> <!-- need to change -->
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/animate.css" />
+        <link rel="stylesheet" href="/font/css/fontawesome.min.css">
+        <link rel="stylesheet" href="/bbfont/css/solid.css">
+        <link rel="dns-prefetch" href="http://googletagmanager.com/" crossorigin>
+
+        <style>
+            :root {
+                --colorPrimary: #528da3;
+                --colorSecondary: #335470;
+                --colorBtn: #ffffff
+            }
+        </style>
+
+    <body>
+
+        <div class="col-md-12 col-lg-9 col-xl-9 col-xs-12 no-gutters" id="home">
+            <header class="fixed-top">
+                <div class="navbar navbar-expand-lg navbar-light bg-light">
+
+                    <a class="" href="#home">
+                        <img width="150" height="48" src="./img/ruparel-celestia-logo.png" class="logo p-1"
+                            alt="Ruparel-Celestia-Logo" />
+                    </a>
+                    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" id="burger"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <nav class="main-nav navbar-light bg-light" id="main-nav">
+
+                        <ul class="navbar-nav mr-auto text-center">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#about"><i class="fa fa-home nav-icon"
+                                        aria-hidden="true"></i>Ruparel Celestia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#price"><span><b>&#8377;</b></span> Price</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Floor_plan"><i class="fa fa-building"
+                                        aria-hidden="true"></i>Floorplan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Amenities"><i
+                                        class="fa fa-cutlery font-weight-bold nav-icon"></i> Amenities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#gallery"><i class="fa fa-image"></i> Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#highlights"><i class="fa fa-road font-weight-bold nav-icon"
+                                        aria-hidden="true"></i> Location</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal"
+                                    data-title="Download Brochure" id="DownloadBrochure_head"><i
+                                        class="fa fa-download font-weight-bold animated slideInDown infinite nav-icon"
+                                        aria-hidden="true"></i>Brochure</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </header>
+
+            <!-- /* Banner Slider */ -->
+
+            <div class="flex-row  position-relative no-gutter">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <image class="d-block w-100 resposive_height img_top" width="800" height="800"
+                                src="img/Ruparel-Banner.jpg" alt="Ruparel Celestia Banner" />
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="bg_trans text-ce" id="bookpanel">
+                    <div class="bg-success bhead1 effetMoveGradient" id="bookopen">BOOKING OPEN</div>
+                    <div class="p-2 poscenter">
+                        <div>
+                            <!-- <h4 class="text-uppercase">Ruparel Celestia</h4> -->
+                            <h4 class="text-uppercase">{{NAME}}</h4>
+                        </div>
+                        <div>
+                            <h6>Mulund East</h6>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled padding">
+                            <p>
+                                <i class="fa fa-caret-left p-2"></i> Land Area : <span style="padding:5px;">0.18 Acres
+                                </span>
+                                <br />
+                                <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">1 & 2 BHK Grand Deck
+                                    Residences </span>
+                            </p>
+                        </ul>
+                    </div>
+                    <div class="bg-success effetMoveGradient text-center p-1">1 + 1 BHK Jodi Options Available</div>
+                    <div class="aa p-2 animate__bounceIn text-center">Avail Exclusive Benefits & Offers</div>
+                    <div class="bg-success effetMoveGradient text-center p-1">Floors : Ground + 17 Storey</div>
+
+
+                    <div class="p-2 poscenter">
+                        <h4>
+                            1 & 2 BHK Starting @ 1.15cr. Onwards</h4>
+                        <button id="enquire-now" class=" btn btn-success effetMoveGradient animate__swing"
+                            data-toggle="modal" data-target="#myModal" data-title="Enquire Now">Enquire Now</button>
+                    </div>
+
+                    <div class="show" style="margin-top: 24px;">
+                        <h6 class="aa animate__bounceIn infinite" style="animation-duration: 3s;">
+                            <div class="form-last-heading" style="padding: 2px 8px;
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    flex-direction: column;"><img src="/img/ola.jpeg" style="width: 50px;" alt="Ruparel Celestia Ola" /> Free cab
+                                facility for site visit</div>
+                        </h6>
+                    </div>
+                </div>
+                <!-- /* Banner Slider End */ -->
+
+                <div class="col-md-12 col-sm-12 col-xs-12" id="about">
+
+                    <!-- /* About section */ -->
+                    <div class="card bg-light mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Overview</h4>
+                            <p class="card-text">
+                                The Eastern Express Highway provides access to Ruparel Celestia Mulund East, which has
+                                been updated to Ruparel Mulund East.
+                                It also has good connectivity through the Central Railway and the upcoming metro. This
+                                suburb is connected to Navi Mumbai
+                                and the Eastern Express Highway by the Mulund-Airoli bridge. Improved connectivity is
+                                anticipated as a result of the
+                                currently under construction Line 4 Mumbai Metro project, which will run from Wadala to
+                                Mulund.
+                            </p>
+                            <div class="d-grid gap-2 text-center mx-auto">
+                                <button id="download-brochure" type="button" class="btn btn-success effetMoveGradient"
+                                    data-toggle="modal" data-target="#myModal" data-title="Download Brochure">Download
+                                    Brochure</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- /* About section End */ -->
+
+                <!-- /* Price section  */ -->
+
+                <div class="card bg-light mb-3" id="price">
+
+                    <div class="card-header text-center">
+                        <h4>Price</h4>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-columns1">
+                            <div class="card">
+                                <div class="md-col-9">
+                                    <div class="">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <th style="text-align:center;">Type</th>
+                                                <th style="text-align:center;">Carpet Area</th>
+                                                <th style="text-align:center;">Price</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1BHK </td>
+                                                <td style="text-align:center;">414 SQ.FT</td>
+                                                <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button
+                                                        type="button" class="btn btn-success effetMoveGradient btn-sm"
+                                                        data-toggle="modal" data-target="#myModal"
+                                                        data-title="Send Me Pricing Details" id="price_equ">Price
+                                                        Breakup</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">2BHK </td>
+                                                <td style="text-align:center;">728 - 804 SQ.FT</td>
+                                                <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button
+                                                        type="button" class="btn btn-success effetMoveGradient btn-sm"
+                                                        data-toggle="modal" data-target="#myModal"
+                                                        data-title="Send Me Pricing Details" id="price_equ">Price
+                                                        Breakup</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1 + 1BHK Jodi </td>
+                                                <td style="text-align:center;">828 SQ.FT</td>
+                                                <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button
+                                                        type="button" class="btn btn-success effetMoveGradient btn-sm"
+                                                        data-toggle="modal" data-target="#myModal"
+                                                        data-title="Send Me Pricing Details" id="price_equ">Price
+                                                        Breakup</button></td>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card1 no_mar_l_r w-100">
+                                <div class="md-col-3">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160"
+                                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" role="img" aria-label="Placeholder: Complete Costing Details">
+                                        <title>Complete Costing Details</title>
+                                        <defs>
+                                            <clipPath id="myrec">
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                            </clipPath>
+                                        </defs>
+                                        <text x="35%" y="50%" fill="#dee2e6" dy=".3em">Complete Costing Details</text>
+                                        <image width="100%" height="100%" xlink:href="./img/costingdetails.jpeg"
+                                            clip-path="url(#myrec)" alt="Ruparel-Celestia-Costing-Details" />
+                                    </svg>
+                                    <div class="overlay">
+                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"
+                                            data-title="Send Me Costing Details" id="costing">ENQUIRE NOW</div>
+                                    </div>
+                                    <div class="p-2 bg-success effetMoveGradient text-center aq at-property-item">
+                                        <h5 class="card-title text-light">Complete Costing Details</h5>
+                                        <span id="floorplan"></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- /* Price section End */ -->
+
+                <!-- /* Floorplan section */ -->
+                <div class="card bg-light mb-3" id="Floor_plan">
+                    <div class="card-header text-center">
+                        <h4>Floor Plan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4" style="margin-bottom: 10px;">
+                                <div class="card1">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160"
+                                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" role="img" aria-label="1BHK Plan">
+                                        <title>1BHK Plan</title>
+                                        <defs>
+                                            <clipPath id="fl1">
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">1BHK Plan</text>
+                                            </clipPath>
+                                        </defs>
+                                        <image width="100%" height="100%" xlink:href="./img/1BHK-Plan.jpg"
+                                            clip-path="url(#fl1)" alt="Ruparel Celestia 1BHK Plan" />
+                                    </svg>
+                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
+                                        <h5 class="card-title text-light">1BHK Plan</h5>
+
+                                    </div>
+
+                                    <div class="overlay">
+                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"
+                                            data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-bottom: 10px;">
+                                <div class="card1">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160"
+                                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" role="img" aria-label=" 2BHK Plan">
+                                        <title>2BHK Unit A Plan</title>
+                                        <defs>
+                                            <clipPath id="fl1">
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">2BHK Unit A Plan</text>
+                                            </clipPath>
+                                        </defs>
+                                        <image width="100%" height="100%" xlink:href="img/2BHK-Unit-A-Plan.jpg"
+                                            clip-path="url(#fl1)" alt="Ruparel Celestia 2BHK Unit-A Plan" />
+                                    </svg>
+                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
+                                        <h5 class="card-title text-light">2BHK Unit A Plan</h5>
+
+                                    </div>
+
+                                    <div class="overlay">
+                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"
+                                            data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-bottom: 10px;">
+                                <div class="card1">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160"
+                                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" role="img" aria-label=" 2 bhk unit b Plan">
+                                        <title>2BHK Unit B Plan</title>
+                                        <defs>
+                                            <clipPath id="fl1">
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">2BHK Unit B Plan</text>
+                                            </clipPath>
+                                        </defs>
+                                        <image width="100%" height="100%" xlink:href="img/2BHK-Unit-B-Plan.jpg"
+                                            clip-path="url(#fl1)" alt="Ruparel Celestia 2BHK Unit B Plan" />
+                                    </svg>
+                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
+                                        <h5 class="card-title text-light">2BHK Unit B Plan</h5>
+
+                                    </div>
+
+                                    <div class="overlay">
+                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"
+                                            data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-bottom: 10px;">
+                                <div class="card1">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160"
+                                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                        focusable="false" role="img" aria-label="Jodi Plan">
+                                        <title>Jodi Plan</title>
+                                        <defs>
+                                            <clipPath id="fl1">
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">Jodi Plan</text>
+                                            </clipPath>
+                                        </defs>
+                                        <image width="100%" height="100%" xlink:href="img/Jodi-Flat.jpg"
+                                            clip-path="url(#fl1)" alt="Ruparel Celestia jodi Plan" />
+                                    </svg>
+                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
+                                        <h5 class="card-title text-light">Jodi Plan</h5>
+
+                                    </div>
+
+                                    <div class="overlay">
+                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"
+                                            data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- /* Floorplan section End */ -->
+
+                    <!-- /* Gallery section  */ -->
+                    <div class="card bg-light mb-3" id="gallery">
+                        <div class="card-header text-center">
+                            <h4>Gallery</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
+                                    <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
+
+                                </ol>
+
+                                <div class="carousel-inner">
+
+
+                                    <div class="carousel-item active">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>Luxury Living</title>
+                                            <defs>
+                                                <clipPath id="gsl1">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">Luxury Living</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/Luxury-living.jpg"
+                                                clip-path="url(#gsl1)" alt="Ruparel Celestia Luxury" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>Royalty</title>
+                                            <defs>
+                                                <clipPath id="gsl2">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">Royalty</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/Royalty.jpg"
+                                                clip-path="url(#gsl2)" alt="Ruparel-Celestia-Royalty" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>Precious Perks</title>
+                                            <defs>
+                                                <clipPath id="gsl2">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">Precious Perks</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/Precious-perks.jpg"
+                                                clip-path="url(#gsl2)" alt="Ruparel Celestia Precious Perks" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>The Gem</title>
+                                            <defs>
+                                                <clipPath id="gsl2">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">The Gem</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/The-gem.jpg"
+                                                clip-path="url(#gsl2)" alt="Ruparel Celestia The Gem" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>Gym</title>
+                                            <defs>
+                                                <clipPath id="gsl2">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">Gym</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/Gym.jpg"
+                                                clip-path="url(#gsl2)" alt="Ruparel Celestia Gym" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                                            height="400" xmlns="http://www.w3.org/2000/svg"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                            aria-label="Image">
+                                            <title>Fun</title>
+                                            <defs>
+                                                <clipPath id="gsl2">
+                                                    <rect width="100%" height="100%" fill="#555"></rect>
+                                                </clipPath>
+                                                <text x="50%" y="50%" fill="#333" dy=".3em">Fun</text>
+                                            </defs>
+                                            <image width="100%" height="100%" xlink:href="./img/Fun.jpg"
+                                                clip-path="url(#gsl2)" alt="Ruparel Celestia Fun" />
+                                        </svg>
+                                    </div>
+
+
+
+
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                    <span id="amenities"></span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /* Gallery section End*/ -->
+
+                    <!-- /* Amenities section */ -->
+                    <div class="card bg-light mb-3" id="Amenities">
+                        <div class="card-header text-center">
+                            <h4>Amenities</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Box Office
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Multi
+                                    Purpose Hall</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Swimming
+                                    pool</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Indoor
+                                    Games</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Library
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Children
+                                    Play Area</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Zen garden
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Green Lawn
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Virtual
+                                    Gaming Room</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Gymnasium
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Squash
+                                    Court</div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Meditation
+                                </div>
+                                <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>Senior
+                                    citizen area</div>
+
+                                <span id="map"> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /* Amenities section End */ -->
+
+
+                    <!-- /* Map View section */ -->
+                    <div class="card bg-light mb-3" id="highlights">
+                        <div class="card-body">
+
+                            <div class="card-header text-center">
+                                <h4>Map View</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div id="map-container-google-1" class="z-depth-1-half map-container">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.6604590952857!2d72.9636774!3d19.166334499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8e4a1eaf48d%3A0x8dc476424fb11dd3!2sM%20PATANKAR%20BUILD%20CONS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1710831560297!5m2!1sen!2sin"
+                                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Eastern express highway - 1min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Thane - 5min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Mulund station east - 5min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>90 feet road - 5min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Next to Swatantryaveer V.D Sawarkar BMC
+                                        Hospital</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Navajeevan Hospital - 4min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Veer Savarkar Hospital</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Chandraganga Spandan Hospital - 6min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>IES King George Mulund East - 2min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Dr Yashavantrao Dode World School -
+                                        2min</b>
+                                    </div>
+
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Seven Isles International School - 5
+                                        min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Bombay Presidency International School -
+                                        5 min</b>
+                                    </div>
+                                    <div class="my-2" style="overflow-x:unset;"><span class="dots">
+                                            <i class="fa fa-circle"></i></span>Mulund College of Commerce - 10 min </b>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /* Map View section End */ -->
+
+
+
+
+                    <!--for mobile footer End-->
+
+                    <div class="card bg-light mb-3" style="padding-bottom: 17px; justify-content: center;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">RERA Number</h4><br>
+                            <p class="card-text" style="text-align:center;">
+                                Project MahaRERA number is available on the website maharera.mahaonline.gov. in under
+                                registered projects. RERA No: P51800054935</p>
+                            <!--<div class="qrimgset" style="display: flex; justify-content: center; flex-wrap: wrap;">
+                 <div style="display:flex">
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                           <img src="img/Ashford-QR.jpg" style="width:50% !important;  alt="Ashford-Regal-QRCode" />
+                         
+                     </div>
+            
+                    
+                </div>
+                </div> -->
+                        </div>
+                    </div>
+
+                    <div class="card bg-light mb-3" style="padding-bottom: 17px;">
+                        <div class="card-body">
+                            <p class="card-text" style="text-align:center;font-size:15px;">
+                                <a href="privacypolicy.html" target="_blank"> Privacy Policy || Terms & Conditions ||
+                                </a> Company Rera No. RERA No.A51800022518 <br>
+                                <br>Disclaimer: We are an authorised marketing partner for this project. Provided
+                                content is given by respective owners and this website and content is for information
+                                purpose only and it does not constitute
+                                any offer to avail for any services. Prices mentioned are subject to change without
+                                prior notice and properties mentioned are subject to availability. You can expect a
+                                call, SMS or emails on details registered with us.
+                                <br>2023 &#169; Copyright - All Rights Reserved.
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- col-12 div end -->
+
+            </div>
+            <!-- flex div end -->
+
+        </div>
+        <!-- first div in head div end -->
+
+        <div class="row d-none d-sm-block d-sm-none d-md-block">
+            <!-- Right section -->
+            <div class="col-md-3 col-lg-3 col-xl-3 col-md col-xs-12">
+                <div class="container text-center">
+                    <div class="sidebar d-none d-sm-block d-sm-none d-md-block responsive-width">
+                        <button id="desktop-whatsapp" type="button" class="btn btn-primary btn-dark btn-sm"
+                            onclick="window.open('https://api.whatsapp.com/send?phone=+919321936503&text=Hi!%20I\'m%20Interested%20In%20 *Ruparel Celestia *.%20Please%20Share%20Details.', '_blank');"><i
+                                class='fab fa-whatsapp' style="width: 22px;"></i>+91 9321936503</button><br>
+                        <a href="tel:+91 9321936503"><button id="desktop-call" type="button"
+                                class="btn btn-primary effetMoveGradient btn-success btn-sm" style=" margin: 10px;">
+                                <i class="fa fa-phone" style="rotate: 100deg;"></i>+91 9321936503</button></a>
+                        <div id="contact_rightform">
+                            <div class="card-title">
+                                Pre-Register here for Best Offers
+                            </div>
+
+
+
+
+                            <form id="rightform" name="West - Suburbs" runat="server">
+
+
+                                <div class="form-group" style="width:95%;">
+                                    <input id="txtName" class="form-control rounded-0 micro-form-field"
+                                        pattern="[a-zA-Z ]+" runat="server" required aria-describedby=""
+                                        placeholder="Name"></input><br />
+                                </div>
+                                <div class="form-group" style="width: 95%;">
+                                    <select name="cf_888" data-label="label:Country+Code"
+                                        class="form-control form-group" id="cc" onChange=selectedCountry(value)
+                                        style="width: 25%;  float: left;">
+                                        <option value="India+91">+91</option>
+                                    </select>
+                                    <input id="txtMobile" pattern="^[6-9]\d{9}$" required
+                                        class="form-control rounded-0 micro-form-field" MaxLength="10" runat="server"
+                                        placeholder="Mobile" style="float: right; width: 75%;"></input>
+                                    <p id="RequiredFieldValidator3" runat="server"
+                                        ErrorMessage="Mobile No cannot be blank" ValidationGroup="sums"
+                                        ControlToValidate="txtMobile" ForeColor="Red"></p>
+
+                                </div>
+                                <div class="form-group" style="width: 95%;">
+                                    <input id="txtEmailId" class="form-control rounded-0 micro-form-field"
+                                        runat="server" required placeholder="Email ID"></input>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                        ErrorMessage="Email cannot be blank" ControlToValidate="txtEmailId"
+                                        ValidationGroup="sums" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                        ControlToValidate="txtEmailId" ValidationGroup="sums"
+                                        ErrorMessage="Enter Valid Email Id" ForeColor="Red"
+                                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                                    </asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                        ControlToValidate="txtMobile" ValidationGroup="sums"
+                                        ErrorMessage="Mobile number must be 10 digit" ForeColor="Red"
+                                        ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
+                                </div>
+                                <button id="btnSubmit" runat="server"
+                                    class="btn btn-info micro-form-btn mt-2 effetMoveGradient" UseSubmitBehavior="false"
+                                    Text="Enquiry Now" ValidationGroup="sums" OnClick="btnsubmit_Serverclick">Enquiry
+                                    Now
+                                </button>
+                                <div style="margin-top: 24px;">
+                                    <h6 class="aa animate__bounceIn infinite" style="animation-duration: 3s;">
+                                        <div class="form-last-heading"
+                                            style="padding: 2px 8px;background: #e8e8e8; display:flex;"><img
+                                                src="./img/ola.jpeg" style="width: 50px;"> Free cab facility for site
+                                            visit</div>
+                                    </h6>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right section End -->
+
+
+
+        <div class="mobile_footer">
+            <div class="d-flex flex-row">
+                <button id="mobile-call" type="button" class="mob1 bg-green text-center flex-row text-light"
+                    onclick="window.location.href='tel:+91 9321936503'" class="text-white">
+                    <i class="fa fa-phone" style="rotate: 100deg;"></i> Call </button>
+                <button type="button" id="mobile-enquire" class="mob1 bg-green text-center flex-row text-light"
+                    data-toggle="modal" data-target="#myModal" data-title="Mail me pricing details">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>Enquire</button>
+                <button type="button" id="mobile-whatsapp" class="mob1 bg-green text-center flex-row text-light"
+                    onclick="window.open('https://api.whatsapp.com/send?phone=+919321936503&amp;text=Hi!%20I\'m%20Interested%20In%20*Avant Heritage *.%20Please%20Share%20Details.', '_self');"><i
+                        class="fab fa-whatsapp"></i>WhatsApp</button>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color_white modal-header bg-green">
+                        <h4 class="modal-title">Mail Me Pricing Details</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="contact_form">
+                            <div class="card-title">
+                                Pre-Register here for Best offers
+                            </div>
+                            <div class="form-group" style="width: 95%;">
+                                <input id="modalName" class="form-control rounded-0 micro-form-field"
+                                    pattern="[a-zA-Z ]+" runat="server" required aria-describedby=""
+                                    placeholder="Name"></input><br />
+                            </div>
+                            <div class="form-group" style="width: 95%;">
+                                <select name="cf_888" data-label="label:Country+Code" class="form-control form-group"
+                                    id="cc" onChange=selectedCountry1(value) style="width: 25%;  float: left;">
+                                    <option value="India+91">+91</option>
+                                </select>
+                                <input ID="modalMobile" pattern="^[6-9]\d{9}$" required
+                                    class="form-control rounded-0 micro-form-field" MaxLength="10" runat="server"
+                                    placeholder="Mobile" style="float: right; width: 75%;"></input>
+                                <asp:RequiredFieldValidator ID="rf1" runat="server"
+                                    ErrorMessage="Mobile No cannot be blank" ControlToValidate="modalMobile"
+                                    ForeColor="Red" ValidationGroup="sumk"></asp:RequiredFieldValidator>
+
+                            </div>
+                            <div class="form-group" style="width: 95%;">
+                                <input id="modaMail" class="form-control rounded-0 micro-form-field" runat="server"
+                                    required placeholder="Email ID"></input>
+                                <asp:RequiredFieldValidator ID="rf3" runat="server" ErrorMessage="Email cannot be blank"
+                                    ControlToValidate="modaMail" ForeColor="Red" ValidationGroup="sumk">
+                                </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="rev7" runat="server" ControlToValidate="modaMail"
+                                    ErrorMessage="Enter Valid Email Id" ForeColor="Red" ValidationGroup="sumk"
+                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                                </asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="rev2" runat="server" ValidationGroup="sumk"
+                                    ControlToValidate="modalMobile" ErrorMessage="Mobile number must be 10 digit"
+                                    ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
+                            </div>
+                            <button id="sum" runat="server" class="btn btn-info micro-form-btn mt-2 effetMoveGradient"
+                                ValidationGroup="sumk" UseSubmitBehavior="false" Text="Enquiry Now"
+                                OnClick="sumclick">Enquiry Now</button>
+                            </form>
+
+                            <div style="margin-top: 24px;">
+                                <h6 class="aa animate__bounceIn infinite" style="animation-duration: 3s;">
+                                    <div class="form-last-heading"
+                                        style="padding: 2px 8px;background: #e8e8e8; display:flex;"><img
+                                            src="./img/ola.jpeg" style="width: 50px;"> Free cab facility for site visit
+                                    </div>
+                                </h6>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+
+        <!-- Modal -->
+
+        <!--End Modal-->
+
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+
+
+
+
+        <script>
+            $("#form").on("submit", function (e) {
+                var dataString = $(this).serialize();
+
+                $('#myBtn').prop('disabled', true);
+                $("#myBtn").prop('value', 'Please wait...');
+
+                console.log(dataString); //return false;
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "include/api.php",
+                    // headers: {  'Access-Control-Allow-Origin': '*' },
+                    data: dataString,
+                    success: function () {
+                        mobilelog();
+                        window.location.href = "thanks.php";
+
+                    }
+                });
+
+                e.preventDefault();
+            });
+        </script>
+
+        <script>
+            $("#rightform").on("submit", function (e) {
+                var dataString = $(this).serialize();
+
+                $('#myRightbtn').prop('disabled', true);
+                $("#myRightbtn").prop('value', 'Please wait...');
+
+                // alert(dataString); return false;
+
+                $.ajax({
+                    type: "POST",
+                    url: "include/api.php",
+                    // headers: {  'Access-Control-Allow-Origin': '*' },
+                    data: dataString,
+                    success: function () {
+                        mobilelog();
+                        window.location.href = "thanks.php";
+
+                    }
+                });
+                e.preventDefault();
+            });
+        </script>
+
+        <script type="text/javascript">
+            const
+                burger = document.querySelector("#burger"),
+                nav = document.querySelector("#main-nav"),  // Use ID, if you already use one.
+                a = document.querySelectorAll(".nav-link"); // PS: Use the right selectors!
+
+            burger.addEventListener("click", function (e) {
+                this.classList.toggle("is-open");
+                nav.classList.toggle("is-open");
+            });
+
+            a.forEach(el => el.addEventListener("click", function (e) {
+                burger.classList.toggle("is-open");
+                nav.classList.toggle("is-open");
+            }));
+        </script>
+        <script>
+            $('#myModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal 
+                var modal = $(this);
+                var title = button.data('title');
+                modal.find('.modal-title').text(title)
+            });
+        </script>
+
+        <script src="/js/fa_font.js"></script>
+
+        <script>
+            document.getElementById('ocountry1').style.display = "none";
+            document.getElementById('india1').style.display = "block";
+            document.getElementById('india1').setAttribute("required", "");
+            document.getElementById('india1').setAttribute("name", "mobile");
+
+            function selectedCountry1(sv) {
+
+                if (sv == "India+91") {
+                    document.getElementById('ocountry1').style.display = "none";
+                    document.getElementById("ocountry1").removeAttribute("required");
+                    document.getElementById('ocountry1').setAttribute("name", "mobile");
+                    document.getElementById("ocountry1").value = '';
+                    document.getElementById('india1').style.display = "block";
+                    document.getElementById("india1").setAttribute("required", "");
+                    document.getElementById('india1').setAttribute("name", "mobile");
+
+                }
+                else {
+                    document.getElementById('india1').style.display = "none";
+                    document.getElementById("india1").removeAttribute("required");
+                    document.getElementById('india1').setAttribute("name", "mobile1");
+                    document.getElementById("india1").value = '';
+                    document.getElementById('ocountry1').style.display = "block";
+                    document.getElementById("ocountry1").setAttribute("required", "");
+                    document.getElementById('ocountry1').setAttribute("name", "mobile");
+                }
+            }
+        </script>
+        <script>
+            document.getElementById('ocountry').style.display = "none";
+            document.getElementById('india').style.display = "block";
+            document.getElementById('india').setAttribute("required", "");
+            document.getElementById('india').setAttribute("name", "mobile");
+
+            function selectedCountry(sv) {
+                if (sv == "India+91") {
+                    document.getElementById('ocountry').style.display = "none";
+                    document.getElementById("ocountry").removeAttribute("required");
+                    document.getElementById('ocountry').removeAttribute("name", "mobile");
+                    document.getElementById("ocountry").value = '';
+                    document.getElementById('india').style.display = "block";
+                    document.getElementById("india").setAttribute("required", "");
+                    document.getElementById('india').setAttribute("name", "mobile");
+
+                }
+                else {
+                    document.getElementById('india').style.display = "none";
+                    document.getElementById("india").removeAttribute("required");
+                    document.getElementById('india').removeAttribute("name", "mobile");
+                    document.getElementById("india").value = '';
+                    document.getElementById('ocountry').style.display = "block";
+                    document.getElementById("ocountry").setAttribute("required", "");
+                    document.getElementById('ocountry').setAttribute("name", "mobile");
+                }
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#enquire-now').click(function () {
+                    $leadname0 = $("#enquire-now").attr('data-title');
+                    $("#lead").attr("value", $leadname0);
+
+                });
+                $('#download-brochure').click(function () {
+                    $leadname1 = $("#download-brochure").attr('data-title');
+                    $("#lead").attr("value", $leadname1);
+                });
+                $('#DownloadBrochure_head').click(function () {
+                    $leadname2 = $("#DownloadBrochure_head").attr('data-title');
+                    $("#lead").attr("value", $leadname2);
+
+                });
+
+                $('#price_equ').click(function () {
+
+                    $leadname3 = $("#price_equ").attr('data-title');
+                    $("#lead").attr("value", $leadname3);
+
+                });
+
+                $('#costing').click(function () {
+
+                    $leadname4 = $("#costing").attr('data-title');
+                    $("#lead").attr("value", $leadname4);
+                });
+
+                $('#floorplan').click(function () {
+
+                    $leadname5 = $("#floorplan").attr('data-title');
+                    $("#lead").attr("value", $leadname5);
+                });
+            });
+
+
+        </script>
+    </body>
+
 </html>
