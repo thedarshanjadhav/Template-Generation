@@ -17,6 +17,11 @@ input {
   border: 1px solid #000000;
 }
 
+textarea {
+  border: 1px solid #000000;
+}
+
+
 .full-body {
   padding-top: 10px;
   height: calc(100vh - 80px);

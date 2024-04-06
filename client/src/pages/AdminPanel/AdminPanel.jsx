@@ -9,6 +9,7 @@ export default function AdminPanel() {
         pColor:'',
         sColor:'', 
         template: 'template1',
+        amenities: '', // New field for amenities
         image1: null,
         image2: null,
     };
@@ -36,6 +37,7 @@ export default function AdminPanel() {
             formDataToSend.append('pColor', formData.pColor);
             formDataToSend.append('sColor', formData.sColor);
             formDataToSend.append('template', formData.template);
+            formDataToSend.append('amenities', formData.amenities); // Include amenities in form data
             formDataToSend.append('image1', formData.image1);
             formDataToSend.append('image2', formData.image2);
 
@@ -103,6 +105,10 @@ export default function AdminPanel() {
                         <Flex gap={2}>
                             <label>sColor</label>
                             <input name="sColor" type="text" value={formData.sColor} required onChange={handleChange} />
+                        </Flex>
+                        <Flex gap={2}>
+                            <label>Amenities</label>
+                            <textarea name="amenities" value={formData.amenities} required onChange={handleChange} />
                         </Flex>
                         <Flex gap={2}>
                             <label>Image 1</label>

@@ -21,15 +21,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }]), async (req, res) => {
-    const { name, title, template, pColor, sColor } = req.body;
+    const { name, title, template, pColor, sColor, amenities } = req.body;
     const templateFolderPath = path.join(__dirname, 'templates', template);
 
     // Read the index.html template file
     const indexPath = path.join(templateFolderPath, 'index.html');
-    const indexData = fs.readFileSync(indexPath, 'utf8');
+    let indexData = fs.readFileSync(indexPath, 'utf8');
 
     // Replace placeholders with actual values
-    let modifiedIndex = indexData.replace('{{NAME}}', name).replace('{{TITLE}}', title);
+    indexData = indexData.replace('{{NAME}}', name).replace('{{TITLE}}', title);
 
     // Read the CSS file
     const cssPath = path.join(templateFolderPath, 'css', 'style.css');
@@ -40,13 +40,22 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
 
     // Replace image placeholders with uploaded image paths
     if (req.files['image1'] && req.files['image1'].length > 0) {
-        modifiedIndex = modifiedIndex.replace('{{IMAGE_PATH1}}', `img/${req.files['image1'][0].originalname}`);
+        indexData = indexData.replace('{{IMAGE_PATH1}}', `img/${req.files['image1'][0].originalname}`);
     }
     
     if (req.files['image2'] && req.files['image2'].length > 0) {
-        modifiedIndex = modifiedIndex.replace('{{IMAGE_PATH2}}', `img/${req.files['image2'][0].originalname}`);
+        indexData = indexData.replace('{{IMAGE_PATH2}}', `img/${req.files['image2'][0].originalname}`);
     }
 
+    // Add amenities dynamically
+    const amenitiesList = amenities.split(',').map(item => item.trim());
+    let amenitiesHTML = '';
+    amenitiesList.forEach(amenity => {
+        amenitiesHTML += `<div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i>${amenity}</div>`;
+    });
+
+    // Append amenities HTML to the indexData
+    indexData = indexData.replace('{{AMENITIES_PLACEHOLDER}}', amenitiesHTML);
 
     // Create an archiver instance
     const zipStream = new require('stream').PassThrough();
@@ -56,7 +65,7 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
     archive.pipe(zipStream);
 
     // Append modified index.html and style.css to the archive
-    archive.append(modifiedIndex, { name: 'index.html' });
+    archive.append(indexData, { name: 'index.html' });
     archive.append(modifiedCSS, { name: 'css/style.css' });
 
     // Append the uploaded images to the archive
