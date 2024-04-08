@@ -13,6 +13,7 @@ export default function AdminPanel() {
         image1: null,
         image2: null,
         galleryImages: null, // New field for gallery images
+        typeAndCarpetArea: [{ type: '', carpetArea: '' }] // New field for type and carpet area
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -30,17 +31,37 @@ export default function AdminPanel() {
         }
     };
 
+    const handleTypeAndCarpetAreaChange = (index, key, value) => {
+        const updatedTypeAndCarpetArea = [...formData.typeAndCarpetArea];
+        updatedTypeAndCarpetArea[index][key] = value;
+        setFormData({ ...formData, typeAndCarpetArea: updatedTypeAndCarpetArea });
+    };
+
+    const addTypeAndCarpetAreaRow = () => {
+        setFormData({
+            ...formData,
+            typeAndCarpetArea: [...formData.typeAndCarpetArea, { type: '', carpetArea: '' }]
+        });
+    };
+
+    const removeTypeAndCarpetAreaRow = (index) => {
+        const updatedTypeAndCarpetArea = [...formData.typeAndCarpetArea];
+        updatedTypeAndCarpetArea.splice(index, 1);
+        setFormData({ ...formData, typeAndCarpetArea: updatedTypeAndCarpetArea });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         try {
             const formDataToSend = new FormData();
+            // Append existing form data
             formDataToSend.append('name', formData.name);
             formDataToSend.append('title', formData.title);
             formDataToSend.append('pColor', formData.pColor);
             formDataToSend.append('sColor', formData.sColor);
             formDataToSend.append('template', formData.template);
-            formDataToSend.append('amenities', formData.amenities); // Include amenities in form data
+            formDataToSend.append('amenities', formData.amenities);
             formDataToSend.append('image1', formData.image1);
             formDataToSend.append('image2', formData.image2);
             if (formData.galleryImages) {
@@ -48,6 +69,11 @@ export default function AdminPanel() {
                     formDataToSend.append('galleryImages', img);
                 }
             }
+            // Append type and carpet area data
+            formData.typeAndCarpetArea.forEach((entry, index) => {
+                formDataToSend.append(`typeAndCarpetArea[${index}][type]`, entry.type);
+                formDataToSend.append(`typeAndCarpetArea[${index}][carpetArea]`, entry.carpetArea);
+            });
 
             const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
                 responseType: 'blob',
@@ -128,8 +154,31 @@ export default function AdminPanel() {
                         </Flex>
                         <Flex gap={2}>
                             <label>Gallery Images</label>
-                            <input name="galleryImages" type="file" multiple onChange={handleChange} /> {/* New input for gallery images */}
+                            <input name="galleryImages" type="file" multiple onChange={handleChange} />
                         </Flex>
+                        {/* Render type and carpet area inputs */}
+                        {formData.typeAndCarpetArea.map((entry, index) => (
+                            <div key={index}>
+                                <Flex gap={2}>
+                                    <label>Type</label>
+                                    <input
+                                        type="text"
+                                        value={entry.type}
+                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'type', e.target.value)}
+                                    />
+                                </Flex>
+                                <Flex gap={2}>
+                                    <label>Carpet Area</label>
+                                    <input
+                                        type="text"
+                                        value={entry.carpetArea}
+                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'carpetArea', e.target.value)}
+                                    />
+                                </Flex>
+                                <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
+                            </div>
+                        ))}
+                        <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
                         <Flex gap={2}>
                             <label>Template</label>
                             <Select name="template" value={formData.template} onChange={handleChange}>

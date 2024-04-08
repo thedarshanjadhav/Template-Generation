@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'galleryImages' }]), async (req, res) => {
-    const { name, title, template, pColor, sColor, amenities } = req.body;
+    const { name, title, template, pColor, sColor, amenities, typeAndCarpetArea} = req.body;
     const templateFolderPath = path.join(__dirname, 'templates', template);
 
     // Read the index.html template file
@@ -70,6 +70,20 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
 
     // Append gallery images HTML to the indexData
     indexData = indexData.replace('{{GALLERY_IMAGES}}', galleryImagesHTML);
+
+    // Add Type and CarpetArea dynamically
+    let  typeAndCarpetAreaHTML = '';
+    typeAndCarpetArea.forEach(item =>{
+        typeAndCarpetAreaHTML += `<tr>
+        <td style="text-align:center;">${item.type} BHK</td>
+        <td style="text-align:center;">${item.carpetArea} SQ.FT</td>
+        <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
+    </tr> `
+    });
+
+    indexData = indexData.replace('{{TYPE_AND_CARPET_AREA}}', typeAndCarpetAreaHTML);
+
+
 
     // Create an archiver instance
     const zipStream = new require('stream').PassThrough();
