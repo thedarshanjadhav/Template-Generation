@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }]), async (req, res) => {
+app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'galleryImages' }]), async (req, res) => {
     const { name, title, template, pColor, sColor, amenities } = req.body;
     const templateFolderPath = path.join(__dirname, 'templates', template);
 
@@ -57,6 +57,20 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
     // Append amenities HTML to the indexData
     indexData = indexData.replace('{{AMENITIES_PLACEHOLDER}}', amenitiesHTML);
 
+    // Add gallery images dynamically
+    let galleryImagesHTML = '';
+    if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
+        req.files['galleryImages'].forEach((image, index) => {
+            // Check if it's the first image
+            const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
+            galleryImagesHTML += `<div class="${carouselItemClass}"><img src="img/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="Gallery Image"></div>`;
+            console.log('Gallery Images HTML:', galleryImagesHTML);
+        });
+    }
+
+    // Append gallery images HTML to the indexData
+    indexData = indexData.replace('{{GALLERY_IMAGES}}', galleryImagesHTML);
+
     // Create an archiver instance
     const zipStream = new require('stream').PassThrough();
     const archive = archiver('zip', { zlib: { level: 9 } });
@@ -77,6 +91,12 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
 
     if (req.files['image2'] && req.files['image2'].length > 0) {
         req.files['image2'].forEach(file => {
+            archive.file(file.path, { name: `img/${file.originalname}` });
+        });
+    }
+
+    if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
+        req.files['galleryImages'].forEach(file => {
             archive.file(file.path, { name: `img/${file.originalname}` });
         });
     }

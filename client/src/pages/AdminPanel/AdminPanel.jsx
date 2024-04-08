@@ -12,6 +12,7 @@ export default function AdminPanel() {
         amenities: '', // New field for amenities
         image1: null,
         image2: null,
+        galleryImages: null, // New field for gallery images
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,8 @@ export default function AdminPanel() {
         const { name, value, files } = e.target;
         if (name.startsWith('image')) {
             setFormData({ ...formData, [name]: files[0] });
+        } else if (name === 'galleryImages') {
+            setFormData({ ...formData, [name]: files });
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -40,6 +43,11 @@ export default function AdminPanel() {
             formDataToSend.append('amenities', formData.amenities); // Include amenities in form data
             formDataToSend.append('image1', formData.image1);
             formDataToSend.append('image2', formData.image2);
+            if (formData.galleryImages) {
+                for (const img of formData.galleryImages) {
+                    formDataToSend.append('galleryImages', img);
+                }
+            }
 
             const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
                 responseType: 'blob',
@@ -117,6 +125,10 @@ export default function AdminPanel() {
                         <Flex gap={2}>
                             <label>Image 2</label>
                             <input name="image2" type="file" required onChange={handleChange} />
+                        </Flex>
+                        <Flex gap={2}>
+                            <label>Gallery Images</label>
+                            <input name="galleryImages" type="file" multiple onChange={handleChange} /> {/* New input for gallery images */}
                         </Flex>
                         <Flex gap={2}>
                             <label>Template</label>
