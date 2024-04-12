@@ -53,10 +53,6 @@ export default function AdminPanel() {
         updatedTypeAndCarpetArea.splice(index, 1);
         setFormData({ ...formData, typeAndCarpetArea: updatedTypeAndCarpetArea });
     };
-
-
-
-
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -217,22 +213,6 @@ export default function AdminPanel() {
                                 <label>Floor plan</label>
                                 <textarea name="floorPlan" value={formData.floorPlan} required onChange={handleChange} />
                             </Flex>
-            
-
-                            {/* {formData.floorPlan.map((plan, index) => (
-                                <div key={index}>
-                                    <Flex gap={2}>
-                                        <label>Floor Plan {index + 1}</label>
-                                        <input
-                                            type="text"
-                                            value={plan}
-                                            onChange={(e) => handleFloorPlanChange(index, e.target.value)}
-                                        />
-                                    </Flex>
-                                    <button type="button" onClick={() => removeFloorPlanField(index)}>Remove</button>
-                                </div>
-                            ))}
-                            <button type="button" onClick={addFloorPlanField}>Add Floor Plan Field</button> */}
                         
                         </VStack>    
 
