@@ -85,7 +85,6 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
     indexData = indexData.replace('{{TYPE_AND_CARPET_AREA}}', typeAndCarpetAreaHTML);
 
 
-
     let floorPlanHTML = '';
     const floorPlanList = floorPlan.split(',').map(item => item.trim());
 if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
@@ -123,9 +122,7 @@ if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
     console.log(floorPlanHTML);
 
     indexData = indexData.replace('{{FLOORPLAN}}', floorPlanHTML);
-
-
-
+    
 
     // Create an archiver instance
     const zipStream = new require('stream').PassThrough();
@@ -156,12 +153,6 @@ if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
             archive.file(file.path, { name: `img/${file.originalname}` });
         });
     }
-
-    // if (req.files['floorPlan[planImg]'] && req.files['floorPlan[planImg]'].length > 0) {
-    //     req.files['floorPlan[planImg]'].forEach(file => {
-    //         archive.file(file.path, { name: `img/${file.originalname}` });
-    //     });
-    // }
 
     if (req.files['floorPlan'] && req.files['floorPlan'].length > 0) {
         req.files['floorPlan'].forEach(file => {
