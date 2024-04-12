@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', req, res => {
+    res.send('Hello, Template generator here!');
+})
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, 'templates', req.body.template, 'img'));
