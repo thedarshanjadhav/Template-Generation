@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Flex, Select, VStack, Alert, AlertIcon } from '@chakra-ui/react';
+import { Button, Flex, Select, VStack, Alert, AlertIcon, Text } from '@chakra-ui/react';
 
 export default function AdminPanel() {
     const initialFormData = { 
@@ -9,11 +9,13 @@ export default function AdminPanel() {
         pColor:'',
         sColor:'', 
         template: 'template1',
-        amenities: '', // New field for amenities
+        amenities: '', 
         image1: null,
         image2: null,
-        galleryImages: null, // New field for gallery images
-        typeAndCarpetArea: [{ type: '', carpetArea: '' }] // New field for type and carpet area
+        galleryImages: null, 
+        typeAndCarpetArea: [{ type: '', carpetArea: '' }], 
+        floorPlanImg: null,
+        floorPlan: ''
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +27,8 @@ export default function AdminPanel() {
         if (name.startsWith('image')) {
             setFormData({ ...formData, [name]: files[0] });
         } else if (name === 'galleryImages') {
+            setFormData({ ...formData, [name]: files });
+        } else if(name === "floorPlanImg"){
             setFormData({ ...formData, [name]: files });
         } else {
             setFormData({ ...formData, [name]: value });
@@ -50,6 +54,10 @@ export default function AdminPanel() {
         setFormData({ ...formData, typeAndCarpetArea: updatedTypeAndCarpetArea });
     };
 
+
+
+
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -62,6 +70,7 @@ export default function AdminPanel() {
             formDataToSend.append('sColor', formData.sColor);
             formDataToSend.append('template', formData.template);
             formDataToSend.append('amenities', formData.amenities);
+            formDataToSend.append('floorPlan', formData.floorPlan);
             formDataToSend.append('image1', formData.image1);
             formDataToSend.append('image2', formData.image2);
             if (formData.galleryImages) {
@@ -74,6 +83,14 @@ export default function AdminPanel() {
                 formDataToSend.append(`typeAndCarpetArea[${index}][type]`, entry.type);
                 formDataToSend.append(`typeAndCarpetArea[${index}][carpetArea]`, entry.carpetArea);
             });
+
+            if(formData.floorPlanImg){
+                for(const img of formData.floorPlanImg){
+                    formDataToSend.append("floorPlanImg", img);
+                }
+            }
+
+            console.log(formData);
 
             const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
                 responseType: 'blob',
@@ -156,6 +173,9 @@ export default function AdminPanel() {
                             <label>Gallery Images</label>
                             <input name="galleryImages" type="file" multiple onChange={handleChange} />
                         </Flex>
+
+                        <VStack border='2px solid black'>
+                            <Text>Price carpetarea</Text>
                         {/* Render type and carpet area inputs */}
                         {formData.typeAndCarpetArea.map((entry, index) => (
                             <div key={index}>
@@ -179,6 +199,43 @@ export default function AdminPanel() {
                             </div>
                         ))}
                         <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
+                        </VStack>  
+
+                        <VStack border='2px solid black'>
+                            <Text>Floor plan</Text>
+                            <Flex gap={2}>
+                                <label>Floor Plan image</label>
+                                <input
+                                    name='floorPlanImg'
+                                    type="file"
+                                    multiple
+                                    onChange={handleChange}
+                                />
+                            </Flex>
+
+                            <Flex gap={2}>
+                                <label>Floor plan</label>
+                                <textarea name="floorPlan" value={formData.floorPlan} required onChange={handleChange} />
+                            </Flex>
+            
+
+                            {/* {formData.floorPlan.map((plan, index) => (
+                                <div key={index}>
+                                    <Flex gap={2}>
+                                        <label>Floor Plan {index + 1}</label>
+                                        <input
+                                            type="text"
+                                            value={plan}
+                                            onChange={(e) => handleFloorPlanChange(index, e.target.value)}
+                                        />
+                                    </Flex>
+                                    <button type="button" onClick={() => removeFloorPlanField(index)}>Remove</button>
+                                </div>
+                            ))}
+                            <button type="button" onClick={addFloorPlanField}>Add Floor Plan Field</button> */}
+                        
+                        </VStack>    
+
                         <Flex gap={2}>
                             <label>Template</label>
                             <Select name="template" value={formData.template} onChange={handleChange}>

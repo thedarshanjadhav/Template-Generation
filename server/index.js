@@ -20,8 +20,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'galleryImages' }]), async (req, res) => {
-    const { name, title, template, pColor, sColor, amenities, typeAndCarpetArea} = req.body;
+app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'galleryImages' }, { name: 'floorPlanImg' }]), async (req, res) => {
+    const { name, title, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan} = req.body;
+    // const floorPlan = req.files['floorPlan'];
     const templateFolderPath = path.join(__dirname, 'templates', template);
 
     // Read the index.html template file
@@ -64,7 +65,7 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
             // Check if it's the first image
             const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
             galleryImagesHTML += `<div class="${carouselItemClass}"><img src="img/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="Gallery Image"></div>`;
-            console.log('Gallery Images HTML:', galleryImagesHTML);
+            // console.log('Gallery Images HTML:', galleryImagesHTML);
         });
     }
 
@@ -82,6 +83,49 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
     });
 
     indexData = indexData.replace('{{TYPE_AND_CARPET_AREA}}', typeAndCarpetAreaHTML);
+
+
+
+    let floorPlanHTML = '';
+    const floorPlanList = floorPlan.split(',').map(item => item.trim());
+if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
+    req.files['floorPlanImg'].forEach((image, index) => {
+        // Get the corresponding floor plan text
+
+        const floorPlanText = floorPlanList[index]
+
+        // Generate HTML for each floor plan item
+        floorPlanHTML += `<div class="col-md-4" style="margin-bottom: 10px;">
+            <div class="card1">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="${floorPlanText}">
+                    <title>${floorPlanText}</title>
+                    <defs>
+                        <clipPath id="clip-path-${floorPlanText}">
+                            <rect width="100%" height="100%" fill="#868e96"></rect>
+                            <text x="35%" y="50%" fill="#dee2e6" dy=".3em">${floorPlanText}</text>
+                        </clipPath>
+                    </defs>
+                    <image width="100%" height="100%" xlink:href="img/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanText}" />
+                </svg>
+                <div class="p-2 bg-success effetMoveGradient text-center aq">
+                    <h5 class="card-title text-light">${floorPlanText}</h5>
+                </div>
+                <div class="overlay">
+                    <div class="text overlay-text" data-toggle="modal" data-target="#myModal"  data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
+                </div>
+            </div>
+        </div>`;
+    // })
+    });
+}
+
+  
+
+    // console.log(floorPlanImg);
+    console.log(floorPlanHTML);
+
+    indexData = indexData.replace('{{FLOORPLAN}}', floorPlanHTML);
+
 
 
 
@@ -111,6 +155,18 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
 
     if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
         req.files['galleryImages'].forEach(file => {
+            archive.file(file.path, { name: `img/${file.originalname}` });
+        });
+    }
+
+    // if (req.files['floorPlan[planImg]'] && req.files['floorPlan[planImg]'].length > 0) {
+    //     req.files['floorPlan[planImg]'].forEach(file => {
+    //         archive.file(file.path, { name: `img/${file.originalname}` });
+    //     });
+    // }
+
+    if (req.files['floorPlan'] && req.files['floorPlan'].length > 0) {
+        req.files['floorPlan'].forEach(file => {
             archive.file(file.path, { name: `img/${file.originalname}` });
         });
     }
