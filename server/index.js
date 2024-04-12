@@ -91,7 +91,7 @@ app.post('/generate-template', upload.fields([{ name: 'image1' }, { name: 'image
 if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
     req.files['floorPlanImg'].forEach((image, index) => {
         // Get the corresponding floor plan text
-
+        
         const floorPlanText = floorPlanList[index]
 
         // Generate HTML for each floor plan item
@@ -118,8 +118,6 @@ if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
     // })
     });
 }
-
-  
 
     // console.log(floorPlanImg);
     console.log(floorPlanHTML);
