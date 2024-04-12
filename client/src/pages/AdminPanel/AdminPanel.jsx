@@ -91,7 +91,7 @@ export default function AdminPanel() {
             // const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
             //     responseType: 'blob',
             // });
-            const response = await axios.post('https://template-generation.onrender.com', formDataToSend, {
+            const response = await axios.post('https://template-generation.onrender.com/generate-template', formDataToSend, {
                 responseType: 'blob',
             });
 
