@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' }]), async (req, res) => {
-    const { name, title, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan } = req.body;
+    const {metaKeywords, metaDescription, navbarName, title, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan } = req.body;
 
     // Path to save template files and images
     const templateFolderPath = path.join(__dirname, 'templates', template);
@@ -37,7 +37,7 @@ app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name
     // Set response headers
     res.set({
         'Content-Type': 'application/zip',
-        'Content-Disposition': `attachment; filename="${name}-${template}-portfolio-template.zip"`
+        'Content-Disposition': `attachment; filename="${navbarName}-${template}-portfolio-template.zip"`
     });
 
     // Pipe the zip stream directly to the response
@@ -48,7 +48,7 @@ app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name
     let indexData = fs.readFileSync(indexPath, 'utf8');
 
     // Replace placeholders with actual values
-    indexData = indexData.replace('{{NAME}}', name).replace('{{TITLE}}', title)
+    indexData = indexData.replace('{{NAVBAR_NAME}}', navbarName).replace('{{TITLE}}', title).replace('{{META_KEYWORDS}}', metaKeywords).replace('{{META_DESCRIPTION}}', metaDescription);
 
     if (req.files['titleIcon'] && req.files['titleIcon'].length > 0) {
         indexData = indexData.replace('{{TITLE_ICON}}', `image/${req.files['titleIcon'][0].originalname}`);
@@ -170,18 +170,8 @@ app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name
     // Finalize the archive
     await archive.finalize();
 
-    // Once the zip stream has been closed, delete the uploaded images
-    archive.on('end', () => {
-        try {
-            const imgFolderPath = path.join(templateFolderPath, 'Vora-Skyline', 'marina-enclave', 'image');
-            fs.readdirSync(imgFolderPath).forEach((file) => {
-                fs.unlinkSync(path.join(imgFolderPath, file));
-            });
-            console.log('Images cleared from image folder.');
-        } catch (err) {
-            console.error('Error clearing image folder:', err);
-        }
-    });
+    clearImageFolder(path.join(__dirname, 'templates', req.body.template, 'Vora-Skyline', 'marina-enclave', 'image'));
+
 });
 
 function appendFilesRecursively(archive, folderPath, basePath) {
@@ -195,6 +185,15 @@ function appendFilesRecursively(archive, folderPath, basePath) {
         } else if (stats.isDirectory()) {
             appendFilesRecursively(archive, filePath, basePath);
         }
+    });
+}
+
+function clearImageFolder(folderPath) {
+    // Function to clear contents of the image folder
+    const files = fs.readdirSync(folderPath);
+    files.forEach(file => {
+        const filePath = path.join(folderPath, file);
+        fs.unlinkSync(filePath); // Remove the file
     });
 }
 

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Flex, Select, VStack, Alert, AlertIcon, Text } from '@chakra-ui/react';
+import { Button, Flex, Select, VStack, Alert, AlertIcon, Box } from '@chakra-ui/react';
 
 export default function AdminPanel() {
     const initialFormData = { 
-        name: '', 
+        metaDescription:'',
+        metaKeywords:'',
+        navbarName: '', 
         title: '', 
         pColor:'',
         sColor:'', 
@@ -14,8 +16,8 @@ export default function AdminPanel() {
         typeAndCarpetArea: [{ type: '', carpetArea: '' }], 
         floorPlanImg: null,
         floorPlan: '',
-        titleIcon: null, // New field for titleIcon
-        navbarLogo: null // New field for navbarLogo
+        titleIcon: null, 
+        navbarLogo: null 
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +59,9 @@ export default function AdminPanel() {
         try {
             const formDataToSend = new FormData();
             // Append existing form data
-            formDataToSend.append('name', formData.name);
+            formDataToSend.append('metaDescription', formData.metaDescription);
+            formDataToSend.append('metaKeywords', formData.metaKeywords);
+            formDataToSend.append('navbarName', formData.navbarName);
             formDataToSend.append('title', formData.title);
             formDataToSend.append('pColor', formData.pColor);
             formDataToSend.append('sColor', formData.sColor);
@@ -100,7 +104,7 @@ export default function AdminPanel() {
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `${formData.name}-${formData.template}-portfolio-template.zip`);
+            link.setAttribute('download', `${formData.navbarName}-${formData.template}-portfolio-template.zip`);
 
             document.body.appendChild(link);
             link.click();
@@ -125,7 +129,6 @@ export default function AdminPanel() {
 
     return (
         <>
-            <h1>This is Admin panel</h1>
             {successMessage && (
                 <Alert status="success">
                     <AlertIcon />
@@ -141,98 +144,329 @@ export default function AdminPanel() {
             <VStack w="100%">
                 <form onSubmit={handleSubmit}>
                     <VStack gap={2} border="2px solid black" padding="10px">
-                        <Flex gap={2}>
-                            <label>Name</label>
-                            <input name="name" type="text" value={formData.name} required onChange={handleChange} />
-                        </Flex>
-                        <Flex gap={2}>
-                            <label>Title</label>
-                            <input name="title" type="text" value={formData.title} required onChange={handleChange} />
-                        </Flex>
-                        <Flex gap={2}>
-                            <label>pColor</label>
-                            <input name="pColor" type="text" value={formData.pColor} required onChange={handleChange} />
-                        </Flex>
-                        <Flex gap={2}>
-                            <label>sColor</label>
-                            <input name="sColor" type="text" value={formData.sColor} required onChange={handleChange} />
-                        </Flex>
-                        <Flex gap={2}>
-                            <label>Amenities</label>
-                            <textarea name="amenities" value={formData.amenities} required onChange={handleChange} />
-                        </Flex>
-                      
-                        <Flex gap={2}>
-                            <label>Gallery Images</label>
-                            <input name="galleryImages" type="file" multiple onChange={handleChange} />
-                        </Flex>
+                       
+                        {/* head part */}
+                        <Box className='box'>
+                            <h1>Head</h1>
+                           <VStack gap={3}>
+                                {/* first row */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label>Title</label>
+                                        <input name="title" type="text" value={formData.title} required onChange={handleChange} />
+                                    </VStack>
+                                    <VStack>
+                                        <label>Title Icon</label>
+                                        <input name="titleIcon" type="file" required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+                           
 
-                        <Flex gap={2}>
-                            <label>Title Icon</label>
-                            <input name="titleIcon" type="file" onChange={handleChange} />
-                        </Flex>
+                                {/* second row */}
+                                <Flex gap={4}>
+                                    <VStack >
+                                        <label>Meta Desciption</label>
+                                        <textarea name="metaDescription" value={formData.metaDescription} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                    <VStack>
+                                        <label>Meta Keyword</label>
+                                        <textarea name="metaKeywords" value={formData.metaKeywords} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
 
-                        <Flex gap={2}>
-                            <label>Navbar Logo</label>
-                            <input name="navbarLogo" type="file" onChange={handleChange} />
-                        </Flex>
+                        {/* NavBar */}
+                        <Box className='box'>
+                            <h1>NavBar</h1>
+                           <VStack gap={3}>
+                                {/* first row */}
+                                <Flex gap={4} style={{alignSelf:'self-start'}}>
+                                    <VStack w={'100%'}>
+                                        <label>NavBar Logo</label>
+                                        <input name="navbarLogo" type="file" required onChange={handleChange} style={{width:'100%'}}/>
+                                    </VStack>
+                                </Flex>
+                           
 
-                        <VStack border='2px solid black'>
-                            <Text>Price carpetarea</Text>
-                            {/* Render type and carpet area inputs */}
-                            {formData.typeAndCarpetArea.map((entry, index) => (
+                                {/* second row */}
+                                <Flex gap={4}>
+                                <VStack>
+                                        <label>NavBar Name</label>
+                                        <input name="navbarName" type="text" value={formData.navbarName} required onChange={handleChange}/>
+                                    </VStack>
+                                    <VStack>
+                                        <label>NavBar alt</label>
+                                        <input name="navbarAlt" type="text" value={formData.navbarAlt} required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
+
+                    
+
+                        {/* Banner */}
+                        <Box className='box'>
+                            <h1>Banner</h1>
+                            <VStack>
+                                {/* row 1 */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label htmlFor="">Banner Image</label>
+                                        <input name='bannerImages' type="file" multiple required onChange={handleChange}/>
+                                        <p style={{fontSize:'12px'}}>Note: choose multiple pic</p>
+                                    </VStack>
+                                    <VStack>
+                                        <label htmlFor="">Banner Alt</label>
+                                        <textarea name="bannerAlt" value={formData.bannerAlt} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+
+                                {/* row 2 */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label htmlFor="">Project Name</label>
+                                        <input name="projectName" value={formData.projectName} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                    <VStack>
+                                        <label htmlFor="">Location</label>
+                                        <input name="location" value={formData.location} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+                                
+                                {/* row 3 */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label htmlFor="">Land Area</label>
+                                        <input name="landArea" value={formData.landArea} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                    <VStack>
+                                        <label htmlFor="">Residencies</label>
+                                        <input name="residencies" value={formData.residencies} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+
+                                {/* row 4 */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label htmlFor="">Amenities</label>
+                                        <input name="amenitiesHighlight" value={formData.amenitiesHighlight} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                    <VStack>
+                                        <label htmlFor="">Highlighter1</label>
+                                        <input name="highlighter1" value={formData.highlighter1} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+
+                                {/* row 5 */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label htmlFor="">Highlighter2</label>
+                                        <input name="highlighter2" value={formData.highlighter2} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                    <VStack>
+                                        <label htmlFor="">Highlighter3</label>
+                                        <input name="highlighter3" value={formData.highlighter3} type="text" required onChange={handleChange}/>
+                                    </VStack>
+                                </Flex>
+
+                                {/* row 6 */}
+                                <Flex gap={4} w='100%'>
+                                    <VStack>
+                                        <label>Onwards</label>
+                                        <textarea name="onwards" cols={54} rows={1} style={{width:'100%', height:'30px'}} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+                                {/* row 7 */}
+                                <Flex gap={4} w='100%'>
+                                    <VStack>
+                                        <label>Overview</label>
+                                        <textarea name="overview" cols={54} rows={1} style={{width:'100%', height:'30px'}} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>    
+
+                        {/*  Price */}
+                        <Box className='box'>
+                            <h1>Price</h1>
+                            <VStack>
+                                {formData.typeAndCarpetArea.map((entry, index) => (
                                 <div key={index}>
-                                    <Flex gap={2}>
-                                        <label>Type</label>
+                                <Flex gap={4}>
+                                    <VStack>
+                                    <label>Type</label>
+                                    <input
+                                        type="text"
+                                        value={entry.type}
+                                        required
+                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'type', e.target.value)}
+                                    />
+                                    </VStack>
+                                    <VStack>
+                                    <label>Carpet Area</label>
+                                    <input
+                                        type="text"
+                                        value={entry.carpetArea}
+                                        required
+                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'carpetArea', e.target.value)}
+                                    />
+                                    </VStack>
+                                </Flex>
+                                <VStack>
+                                    <label>Price</label>
+                                    <input
+                                        type="text"
+                                        value={entry.price}
+                                        style={{alignSelf:'start'}}
+                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'price', e.target.value)}
+                                    />
+                                    </VStack>
+                            
+                                <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
+                            </div>
+                        ))}
+                        <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
+                            </VStack>
+                        </Box>   
+
+                        {/* Floor Plan */}
+                        <Box className='box'>
+                            <h1>Floor Plan</h1>
+                            <VStack gap={3}>
+                                {/* first row */}
+                                <Flex gap={4} style={{alignSelf:'self-start'}}>
+                                    <VStack w={'100%'}>
+                                        <label>Floor Plan image</label>
                                         <input
-                                            type="text"
-                                            value={entry.type}
-                                            onChange={(e) => handleTypeAndCarpetAreaChange(index, 'type', e.target.value)}
+                                            name='floorPlanImg'
+                                            type="file"
+                                            multiple
+                                            onChange={handleChange}
+                                            style={{width: "100%"}}
                                         />
-                                    </Flex>
-                                    <Flex gap={2}>
-                                        <label>Carpet Area</label>
-                                        <input
-                                            type="text"
-                                            value={entry.carpetArea}
-                                            onChange={(e) => handleTypeAndCarpetAreaChange(index, 'carpetArea', e.target.value)}
-                                        />
-                                    </Flex>
-                                    <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
-                                </div>
-                            ))}
-                            <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
-                        </VStack>  
+                                    </VStack>
+                                </Flex>
 
-                        <VStack border='2px solid black'>
-                            <Text>Floor plan</Text>
-                            <Flex gap={2}>
-                                <label>Floor Plan image</label>
-                                <input
-                                    name='floorPlanImg'
-                                    type="file"
-                                    multiple
-                                    onChange={handleChange}
-                                />
-                            </Flex>
+                                {/* second row */}
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label>Floor plan</label>
+                                        <textarea name="floorPlan" value={formData.floorPlan} required onChange={handleChange} />
+                                    </VStack>
+                                    <VStack>
+                                        <label>Floor Plan alt</label>
+                                        <textarea name="floorPlanAlt" value={formData.floorPlanAlt} required onChange={handleChange} />
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
 
-                            <Flex gap={2}>
-                                <label>Floor plan</label>
-                                <textarea name="floorPlan" value={formData.floorPlan} required onChange={handleChange} />
-                            </Flex>
-                        
-                        </VStack>    
+                        {/* Gallery */}
+                        <Box className='box'>
+                            <h1>Gallery</h1>
+                            <VStack>
+                                <Flex gap={4}>
+                                    <VStack>
+                                    <label>Gallery Images</label>
+                                    <input name="galleryImages" type="file" multiple onChange={handleChange} />
+                                    </VStack>
+                                    <VStack>
+                                        <label>Gallery Alt</label>
+                                        <textarea name="galleryImagesAlt" value={formData.galleryAlt} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
 
-                        <Flex gap={2}>
-                            <label>Template</label>
-                            <Select name="template" value={formData.template} onChange={handleChange}>
-                                <option value="template3">Template 3</option>
-                                {/* <option value="template2">Template 2</option> */}
-                            </Select>
+                        {/* Amenities */}
+                        <Box className='box' style={{width:'100%'}}>
+                            <h1>Aminities</h1>
+                            <VStack>
+                                <label>Amenities</label>
+                                <textarea name="amenities" value={formData.amenities} required onChange={handleChange} style={{width:'100%'}}></textarea>
+                                <Flex gap={2}>
+                            
                         </Flex>
+                            </VStack>
+                        </Box>
+
+                        {/* Map */}
+                        <Box className='box' style={{width:'100%'}}>
+                            <h1>Map</h1>
+                            <VStack>
+                                <Flex gap={4}>
+                                    <VStack>
+                                    <label>Map Iframe</label>
+                                    <input name="mapIframe" type="text" required onChange={handleChange} />
+                                    </VStack>
+                                    <VStack>
+                                        <label>Map Nearby </label>
+                                        <textarea name="mapNearby" value={formData.mapNearby} required onChange={handleChange}></textarea>
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
+
+                        {/* Rera */}
+                        <Box className='box' style={{width:'100%'}}>
+                            <h1>Rera</h1>
+                            <VStack>
+                                <Flex style={{alignSelf:'self-start'}}>
+                                    <VStack w={'100%'}>
+                                        <label>Rera image</label>
+                                        <input
+                                            name='reraImg'
+                                            type="file"
+                                            multiple
+                                            onChange={handleChange}
+                                            style={{width: "100%"}}
+                                        />
+                                    </VStack>
+                                </Flex>
+                                <Flex gap={4}>
+                                    <VStack>
+                                        <label>Rera No.</label>
+                                        <input name="reraNo" type="text" required onChange={handleChange} />
+                                    </VStack>
+
+                                    <VStack>
+                                        <label>Rera alt</label>
+                                        <input name="reraAlt" type="text" required onChange={handleChange} />
+                                    </VStack>
+                                </Flex>
+                            </VStack>
+                        </Box>
+                        <Box className='box'>
+                            <h1>Theme</h1>
+                            <Flex gap={4}>
+                                <VStack>
+                                    <label>Primary Color</label>
+                                    <input name="primaryColor" type="text" required onChange={handleChange} />
+                                </VStack>
+
+                                <VStack>
+                                    <label>Secondary Color</label>
+                                    <input name="secondaryColor" type="text" required onChange={handleChange} />
+                                </VStack>
+                            </Flex>
+                        </Box>
+
+                        {/* Template */}
+                       <Box className='box'>
+                            <h1>Templates</h1>
+                            <VStack>
+                                <label>Please choose the Template</label>
+                                <Select name="template" value={formData.template} style={{width:'100%'}} onChange={handleChange}>
+                                    <option value="template3">Template 3</option>
+                                </Select>
+                            </VStack>
+                       </Box>
+
                         <Button type="submit" colorScheme="blue" isLoading={isLoading}>
                             Generate Template
                         </Button>
+
                     </VStack>
                 </form>
             </VStack>

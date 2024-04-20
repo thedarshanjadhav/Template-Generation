@@ -298,7 +298,7 @@
                                 </div>
                             </div> -->
 
-                            {{FLOORPLAN}} 
+                            {{FLOORPLAN}}
                         
                         
                     </div>
