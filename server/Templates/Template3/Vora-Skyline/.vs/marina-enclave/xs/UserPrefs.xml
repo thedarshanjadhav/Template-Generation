@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{0B0DAB79-74BA-4E51-8095-8150F8246A79}|">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.marina-enclave PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="marina-enclave/Default.aspx">
+    <Files>
+      <File FileName="marina-enclave/Default.aspx" Line="538" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="marina-enclave" expanded="True">
+            <Node name="marina-enclave" expanded="True" selected="True">
+              <Node name="img" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/Default.aspx.cs" relfile="marina-enclave/Default.aspx.cs" line="63" column="5" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

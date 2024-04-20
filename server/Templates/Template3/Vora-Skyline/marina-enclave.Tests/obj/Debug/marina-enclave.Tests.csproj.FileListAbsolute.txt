@@ -1,0 +1,66 @@
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/marina-enclave.Tests.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/nunit.framework.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/bin/Debug/nunit.framework.xml
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave.Tests/obj/Debug/marina-enclave.Tests.pdb

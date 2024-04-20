@@ -1,0 +1,76 @@
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Debug/marina-enclave.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/agami bandra/agami-artclave/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/therising/therising/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/Raheja2.0/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/gyan/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/obj/Debug/marina-enclave.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/ruparelvivanza/marina-enclave/obj/Debug/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/bin/marina-enclave.pdb
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/obj/Debug/marina-enclave.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/obj/Debug/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/obj/Debug/marina-enclave.csproj.CopyComplete
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/obj/Debug/marina-enclave.dll
+/Users/kadrifazilatsaba/Desktop/GRPS/new projects/saba/avantheritage/marina-enclave/obj/Debug/marina-enclave.pdb
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\marina-enclave.dll.config
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\marina-enclave.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\marina-enclave.pdb
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\System.Memory.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\System.Numerics.Vectors.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\bin\System.Buffers.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\obj\Debug\marina-enclave.csproj.AssemblyReference.cache
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\obj\Debug\marina-enclave.csproj.CoreCompileInputs.cache
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\obj\Debug\marina-e.72155729.Up2Date
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\obj\Debug\marina-enclave.dll
+C:\Users\Darshan\OneDrive\Desktop\avantheritage\avantheritage\marina-enclave\obj\Debug\marina-enclave.pdb
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\marina-enclave.dll.config
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\marina-enclave.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\marina-enclave.pdb
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\System.Memory.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\System.Numerics.Vectors.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\bin\System.Buffers.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\obj\Debug\marina-enclave.csproj.AssemblyReference.cache
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\obj\Debug\marina-enclave.csproj.CoreCompileInputs.cache
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\obj\Debug\marina-e.72155729.Up2Date
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\obj\Debug\marina-enclave.dll
+C:\Users\Darshan\OneDrive\Desktop\JP_Infra\JP_Infra\JPInfra\marina-enclave\obj\Debug\marina-enclave.pdb

@@ -8,14 +8,14 @@ export default function AdminPanel() {
         title: '', 
         pColor:'',
         sColor:'', 
-        template: 'template1',
+        template: 'template3',
         amenities: '', 
-        image1: null,
-        image2: null,
         galleryImages: null, 
         typeAndCarpetArea: [{ type: '', carpetArea: '' }], 
         floorPlanImg: null,
-        floorPlan: ''
+        floorPlan: '',
+        titleIcon: null, // New field for titleIcon
+        navbarLogo: null // New field for navbarLogo
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -24,12 +24,9 @@ export default function AdminPanel() {
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
-        if (name.startsWith('image')) {
-            setFormData({ ...formData, [name]: files[0] });
-        } else if (name === 'galleryImages') {
-            setFormData({ ...formData, [name]: files });
-        } else if(name === "floorPlanImg"){
-            setFormData({ ...formData, [name]: files });
+     
+        if (name === 'galleryImages' || name === 'floorPlanImg' || name === 'titleIcon' || name === 'navbarLogo') {
+            setFormData({ ...formData, [name]: files }); // Update state for files
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -67,13 +64,13 @@ export default function AdminPanel() {
             formDataToSend.append('template', formData.template);
             formDataToSend.append('amenities', formData.amenities);
             formDataToSend.append('floorPlan', formData.floorPlan);
-            formDataToSend.append('image1', formData.image1);
-            formDataToSend.append('image2', formData.image2);
+      
             if (formData.galleryImages) {
                 for (const img of formData.galleryImages) {
                     formDataToSend.append('galleryImages', img);
                 }
             }
+
             // Append type and carpet area data
             formData.typeAndCarpetArea.forEach((entry, index) => {
                 formDataToSend.append(`typeAndCarpetArea[${index}][type]`, entry.type);
@@ -86,15 +83,19 @@ export default function AdminPanel() {
                 }
             }
 
-            console.log(formData);
+            // Append titleIcon and navbarLogo files
+            if (formData.titleIcon) {
+                formDataToSend.append('titleIcon', formData.titleIcon[0]);
+            }
 
-            const response = await axios.post('https://template-generation-server.onrender.com/generate-template', formDataToSend, {
+            if (formData.navbarLogo) {
+                formDataToSend.append('navbarLogo', formData.navbarLogo[0]);
+            }
+
+            const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
                 responseType: 'blob',
             });
-            // const response = await axios.post('https://template-generation.onrender.com/generate-template', formDataToSend, {
-            //     responseType: 'blob',
-            // });
-
+            
             const blob = new Blob([response.data]);
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -160,44 +161,47 @@ export default function AdminPanel() {
                             <label>Amenities</label>
                             <textarea name="amenities" value={formData.amenities} required onChange={handleChange} />
                         </Flex>
-                        <Flex gap={2}>
-                            <label>Image 1</label>
-                            <input name="image1" type="file" required onChange={handleChange} />
-                        </Flex>
-                        <Flex gap={2}>
-                            <label>Image 2</label>
-                            <input name="image2" type="file" required onChange={handleChange} />
-                        </Flex>
+                      
                         <Flex gap={2}>
                             <label>Gallery Images</label>
                             <input name="galleryImages" type="file" multiple onChange={handleChange} />
                         </Flex>
 
+                        <Flex gap={2}>
+                            <label>Title Icon</label>
+                            <input name="titleIcon" type="file" onChange={handleChange} />
+                        </Flex>
+
+                        <Flex gap={2}>
+                            <label>Navbar Logo</label>
+                            <input name="navbarLogo" type="file" onChange={handleChange} />
+                        </Flex>
+
                         <VStack border='2px solid black'>
                             <Text>Price carpetarea</Text>
-                        {/* Render type and carpet area inputs */}
-                        {formData.typeAndCarpetArea.map((entry, index) => (
-                            <div key={index}>
-                                <Flex gap={2}>
-                                    <label>Type</label>
-                                    <input
-                                        type="text"
-                                        value={entry.type}
-                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'type', e.target.value)}
-                                    />
-                                </Flex>
-                                <Flex gap={2}>
-                                    <label>Carpet Area</label>
-                                    <input
-                                        type="text"
-                                        value={entry.carpetArea}
-                                        onChange={(e) => handleTypeAndCarpetAreaChange(index, 'carpetArea', e.target.value)}
-                                    />
-                                </Flex>
-                                <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
-                            </div>
-                        ))}
-                        <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
+                            {/* Render type and carpet area inputs */}
+                            {formData.typeAndCarpetArea.map((entry, index) => (
+                                <div key={index}>
+                                    <Flex gap={2}>
+                                        <label>Type</label>
+                                        <input
+                                            type="text"
+                                            value={entry.type}
+                                            onChange={(e) => handleTypeAndCarpetAreaChange(index, 'type', e.target.value)}
+                                        />
+                                    </Flex>
+                                    <Flex gap={2}>
+                                        <label>Carpet Area</label>
+                                        <input
+                                            type="text"
+                                            value={entry.carpetArea}
+                                            onChange={(e) => handleTypeAndCarpetAreaChange(index, 'carpetArea', e.target.value)}
+                                        />
+                                    </Flex>
+                                    <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
+                                </div>
+                            ))}
+                            <button type="button" onClick={addTypeAndCarpetAreaRow}>Add Row</button>
                         </VStack>  
 
                         <VStack border='2px solid black'>
@@ -222,8 +226,8 @@ export default function AdminPanel() {
                         <Flex gap={2}>
                             <label>Template</label>
                             <Select name="template" value={formData.template} onChange={handleChange}>
-                                <option value="template1">Template 1</option>
-                                <option value="template2">Template 2</option>
+                                <option value="template3">Template 3</option>
+                                {/* <option value="template2">Template 2</option> */}
                             </Select>
                         </Flex>
                         <Button type="submit" colorScheme="blue" isLoading={isLoading}>

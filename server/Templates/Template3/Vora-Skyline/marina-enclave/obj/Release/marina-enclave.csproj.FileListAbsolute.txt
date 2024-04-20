@@ -1,0 +1,4 @@
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/bin/marina-enclave.dll
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Release/marina-enclave.csproj.AssemblyReference.cache
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Release/marina-enclave.csproj.CoreCompileInputs.cache
+/Users/kadrifazilatsaba/Projects/marina-enclave/marina-enclave/obj/Release/marina-enclave.dll

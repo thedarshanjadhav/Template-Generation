@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /dist/
+Disallow: /fonts/
+Disallow: /img/
+Disallow: /apple-touch-icon.png
+
+
+
+
