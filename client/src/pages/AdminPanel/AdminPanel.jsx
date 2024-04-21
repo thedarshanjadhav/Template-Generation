@@ -1,25 +1,44 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Button, Flex, Select, VStack, Alert, AlertIcon, Box } from '@chakra-ui/react';
+import '../../assets/css/style.css';
 
 export default function AdminPanel() {
     const initialFormData = { 
         metaDescription:'',
         metaKeywords:'',
         navbarName: '', 
+        navbarAlt:'',
         title: '',
         bannerImages:null, 
         bannerAlt:'',
-        pColor:'',
-        sColor:'', 
+        projectName:'',
+        location:'',
+        landArea:'',
+        residencies:'',
+        amenitiesHighlight:'',
+        highlighter1:'',
+        highlighter2:"",
+        highlighter3:'',
+        onwards:'',
+        overview:'',
+        primaryColor:'',
+        secondaryColor:'', 
         template: 'template3',
         amenities: '', 
-        galleryImages: null, 
-        typeAndCarpetArea: [{ type: '', carpetArea: '' }], 
+        galleryImages: null,
+        galleryImagesAlt:'', 
+        typeAndCarpetArea: [{ type: '', carpetArea: '', price:'' }], 
         floorPlanImg: null,
         floorPlan: '',
+        floorPlanAlt:'',
         titleIcon: null, 
-        navbarLogo: null 
+        navbarLogo: null,
+        mapIframe:'',
+        mapNearby:'',
+        reraImg: null,
+        reraAlt:'', 
+        reraNo:''
     };
     const [formData, setFormData] = useState(initialFormData);
     const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +48,7 @@ export default function AdminPanel() {
     const handleChange = (e) => {
         const { name, value, files } = e.target;
      
-        if (name === 'galleryImages' || name === 'floorPlanImg' || name === 'titleIcon' || name === 'navbarLogo' || name === 'bannerImages') {
+        if (name === 'galleryImages' || name === 'floorPlanImg' || name === 'titleIcon' || name === 'navbarLogo' || name === 'bannerImages' || name === 'reraImg') {
             setFormData({ ...formData, [name]: files }); // Update state for files
         } else {
             setFormData({ ...formData, [name]: value });
@@ -64,14 +83,31 @@ export default function AdminPanel() {
             formDataToSend.append('metaDescription', formData.metaDescription);
             formDataToSend.append('metaKeywords', formData.metaKeywords);
             formDataToSend.append('navbarName', formData.navbarName);
+            formDataToSend.append("navbarAlt", formData.navbarAlt)
             formDataToSend.append('title', formData.title);
             formDataToSend.append('bannerAlt', formData.bannerAlt);
-            formDataToSend.append('pColor', formData.pColor);
-            formDataToSend.append('sColor', formData.sColor);
+            formDataToSend.append('projectName', formData.projectName);
+            formDataToSend.append('location', formData.location);
+            formDataToSend.append('landArea', formData.landArea);
+            formDataToSend.append('residencies', formData.residencies);
+            formDataToSend.append('amenitiesHighlight', formData.amenitiesHighlight);
+            formDataToSend.append('highlighter1', formData.highlighter1);
+            formDataToSend.append('highlighter2', formData.highlighter2);
+            formDataToSend.append('highlighter3', formData.highlighter3);
+            formDataToSend.append('onwards', formData.onwards);
+            formDataToSend.append('overview', formData.overview);
+            formDataToSend.append('primaryColor', formData.primaryColor);
+            formDataToSend.append('secondaryColor', formData.secondaryColor);
             formDataToSend.append('template', formData.template);
             formDataToSend.append('amenities', formData.amenities);
             formDataToSend.append('floorPlan', formData.floorPlan);
-      
+            formDataToSend.append('floorPlanAlt', formData.floorPlanAlt);
+            formDataToSend.append('galleryImagesAlt', formData.galleryImagesAlt);
+            formDataToSend.append('mapIframe', formData.mapIframe);
+            formDataToSend.append('mapNearby', formData.mapNearby);
+            formDataToSend.append('reraAlt', formData.reraAlt);
+            formDataToSend.append('reraNo', formData.reraNo);
+
             if (formData.galleryImages) {
                 for (const img of formData.galleryImages) {
                     formDataToSend.append('galleryImages', img);
@@ -88,6 +124,7 @@ export default function AdminPanel() {
             formData.typeAndCarpetArea.forEach((entry, index) => {
                 formDataToSend.append(`typeAndCarpetArea[${index}][type]`, entry.type);
                 formDataToSend.append(`typeAndCarpetArea[${index}][carpetArea]`, entry.carpetArea);
+                formDataToSend.append(`typeAndCarpetArea[${index}][price]`, entry.price);
             });
 
             if(formData.floorPlanImg){
@@ -103,6 +140,11 @@ export default function AdminPanel() {
 
             if (formData.navbarLogo) {
                 formDataToSend.append('navbarLogo', formData.navbarLogo[0]);
+            }
+
+            // Append reraImg file
+            if (formData.reraImg) {
+                formDataToSend.append('reraImg', formData.reraImg[0]);
             }
 
             const response = await axios.post('http://localhost:3001/generate-template', formDataToSend, {
@@ -382,7 +424,7 @@ export default function AdminPanel() {
                                     </VStack>
                                     <VStack>
                                         <label>Gallery Alt</label>
-                                        <textarea name="galleryImagesAlt" value={formData.galleryAlt} required onChange={handleChange}></textarea>
+                                        <textarea name="galleryImagesAlt" value={formData.galleryImagesAlt} required onChange={handleChange}></textarea>
                                     </VStack>
                                 </Flex>
                             </VStack>
@@ -407,7 +449,7 @@ export default function AdminPanel() {
                                 <Flex gap={4}>
                                     <VStack>
                                     <label>Map Iframe</label>
-                                    <input name="mapIframe" type="text" required onChange={handleChange} />
+                                    <input name="mapIframe" type="text" value={formData.mapIframe} required onChange={handleChange} />
                                     </VStack>
                                     <VStack>
                                         <label>Map Nearby </label>
@@ -436,12 +478,12 @@ export default function AdminPanel() {
                                 <Flex gap={4}>
                                     <VStack>
                                         <label>Rera No.</label>
-                                        <input name="reraNo" type="text" required onChange={handleChange} />
+                                        <input name="reraNo" type="text" value={formData.reraNo} required onChange={handleChange} />
                                     </VStack>
 
                                     <VStack>
                                         <label>Rera alt</label>
-                                        <input name="reraAlt" type="text" required onChange={handleChange} />
+                                        <input name="reraAlt" type="text" value={formData.reraAlt} required onChange={handleChange} />
                                     </VStack>
                                 </Flex>
                             </VStack>
@@ -451,12 +493,12 @@ export default function AdminPanel() {
                             <Flex gap={4}>
                                 <VStack>
                                     <label>Primary Color</label>
-                                    <input name="primaryColor" type="text" required onChange={handleChange} />
+                                    <input name="primaryColor" type="text" value={formData.primaryColor} required onChange={handleChange} />
                                 </VStack>
 
                                 <VStack>
                                     <label>Secondary Color</label>
-                                    <input name="secondaryColor" type="text" required onChange={handleChange} />
+                                    <input name="secondaryColor" type="text" value={formData.secondaryColor} required onChange={handleChange} />
                                 </VStack>
                             </Flex>
                         </Box>

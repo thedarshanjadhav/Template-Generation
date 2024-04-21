@@ -25,8 +25,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' }]), async (req, res) => {
-    const {metaKeywords, metaDescription, navbarName, title, bannerAlt, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan } = req.body;
+app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' },{name: 'reraImg' }]), async (req, res) => {
+    const {metaKeywords, metaDescription, navbarName, navbarAlt, title, bannerAlt, projectName, location, landArea, residencies, amenitiesHighlight, highlighter1, highlighter2, highlighter3, onwards, overview, template, primaryColor, secondaryColor, amenities, typeAndCarpetArea, floorPlan, floorPlanAlt, galleryImagesAlt, mapIframe, mapNearby, reraAlt, reraNo } = req.body;
 
     // Path to save template files and images
     const templateFolderPath = path.join(__dirname, 'templates', template);
@@ -48,7 +48,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     let indexData = fs.readFileSync(indexPath, 'utf8');
 
     // Replace placeholders with actual values
-    indexData = indexData.replace('{{NAVBAR_NAME}}', navbarName).replace('{{TITLE}}', title).replace('{{META_KEYWORDS}}', metaKeywords).replace('{{META_DESCRIPTION}}', metaDescription);
+            indexData = indexData.replace('{{NAVBAR_NAME}}', navbarName).replace('{{TITLE}}', title).replace('{{META_KEYWORDS}}', metaKeywords).replace('{{META_DESCRIPTION}}', metaDescription).replace('{{PROJECT_NAME}}', projectName).replace('{{NAVBAR_ALT}}',navbarAlt).replace('{{LOCATION}}', location).replace('{{LAND_AREA}}',landArea).replace('{{RESIDENCIES}}',residencies).replace('{{AMENITIES_HIGHLIGHT}}',amenitiesHighlight).replace('{{HIGHLIGHTER1}}',highlighter1).replace('{{HIGHLIGHTER2}}',highlighter2).replace('{{HIGHLIGHTER3}}',highlighter3).replace('{{ONWARDS}}',onwards).replace('{{OVERVIEW}}', overview).replace('{{MAP_IFRAME}}',mapIframe).replace('{{RERA_Alt}}', reraAlt).replace('{{RERA_NO}}', reraNo);
 
     if (req.files['titleIcon'] && req.files['titleIcon'].length > 0) {
         indexData = indexData.replace('{{TITLE_ICON}}', `image/${req.files['titleIcon'][0].originalname}`);
@@ -89,16 +89,25 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
     // Add gallery images dynamically
     let galleryImagesHTML = '';
+    let galleryCarouselIndicatorHTML = '';
+
     if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
         req.files['galleryImages'].forEach((image, index) => {
+            const galleryAltText = galleryImagesAlt[index];
             // Check if it's the first image
             const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
-            galleryImagesHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="Gallery Image"></div>`;
+
+            const carouselIndicator = index === 0 ? `<li data-target="#carouselExampleIndicators1" data-slide-to="${index}" class="active"></li>` : `<li data-target="#carouselExampleIndicators1" data-slide-to="${index}"></li>`;
+
+            galleryCarouselIndicatorHTML += carouselIndicator;
+            galleryImagesHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="${galleryAltText}"></div>`;
         });
     }
 
     // Append gallery images HTML to the indexData
+    indexData = indexData.replace('{{GALLERY_CAROUSEL_INDICATOR}}', galleryCarouselIndicatorHTML)
     indexData = indexData.replace('{{GALLERY_IMAGES}}', galleryImagesHTML);
+
 
     // Add Type and CarpetArea dynamically
     let  typeAndCarpetAreaHTML = '';
@@ -106,7 +115,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
         typeAndCarpetAreaHTML += `<tr>
         <td style="text-align:center;">${item.type} BHK</td>
         <td style="text-align:center;">${item.carpetArea} SQ.FT</td>
-        <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
+        <td style="text-align:center;">&#8377;${item.price} On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
     </tr> `;
     });
 
@@ -115,10 +124,13 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     // Add floor plans dynamically
     let floorPlanHTML = '';
     const floorPlanList = floorPlan.split(',').map(item => item.trim());
+    const floorPlanAltList = floorPlanAlt.split(',').map(item => item.trim());
+
     if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
         req.files['floorPlanImg'].forEach((image, index) => {
             // Get the corresponding floor plan text
             const floorPlanText = floorPlanList[index];
+            const floorPlanAltText = floorPlanAltList[index];
 
             // Generate HTML for each floor plan item
             floorPlanHTML += `<div class="col-md-4" style="margin-bottom: 10px;">
@@ -131,7 +143,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                                 <text x="35%" y="50%" fill="#dee2e6" dy=".3em">${floorPlanText}</text>
                             </clipPath>
                         </defs>
-                        <image width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanText}" />
+                        <image width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanAltText}" />
                     </svg>
                     <div class="p-2 bg-success effetMoveGradient text-center aq">
                         <h5 class="card-title text-light">${floorPlanText}</h5>
@@ -146,16 +158,40 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
     indexData = indexData.replace('{{FLOORPLAN}}', floorPlanHTML);
 
+    // Add Map Nearby dynamically
+    const mapNearbyList = mapNearby.split(',').map((item) => item.trim());
+    let mapNearbyHTML = "";
+    mapNearbyList.forEach(nearBy => {
+        mapNearbyHTML += `<div class="my-2"  style="overflow-x:unset;"><span class="dots">
+        <i class="fa fa-circle"></i></span>${nearBy}</b>
+    </div>`;
+    })
+
+    indexData = indexData.replace("{{MAP_NEARBY}}",mapNearbyHTML)
+
+    // Replace Rera image placeholders with uploaded image paths
+    if (req.files['reraImg'] && req.files['reraImg'].length > 0) {
+        indexData = indexData.replace('{{RERA_IMAGE}}', `image/${req.files['reraImg'][0].originalname}`);
+    }
+
+
      // Read the CSS file
      const cssPath = path.join(templateFolderPath, 'Vora-Skyline', 'marina-enclave', 'css', 'bt.css');
      const cssData = fs.readFileSync(cssPath, 'utf8');
  
      // Replace color placeholders with actual colors
-     const modifiedCSS = cssData.replace('{{PCOLOR}}', pColor).replace('{{SCOLOR}}', sColor);
+     const modifiedCSS = cssData.replace(/PRIMARYCOLOR/g, primaryColor).replace(/SECONDARYCOLOR/g, secondaryColor);
+
+     // Read the Default.aspx.cs template file
+    const jsPath = path.join(templateFolderPath, 'Vora-Skyline', 'marina-enclave', 'Default.aspx.cs');
+    let jsData = fs.readFileSync(jsPath, 'utf8');
+    jsData = jsData.replace(/{{TITLE}}/g, title);
+
  
 
     // Append modified index.html and style.css directly to the archive
     archive.append(indexData, { name: 'vora-skyline/marina-enclave/Default.aspx' });
+    archive.append(jsData, { name: 'Vora-Skyline/marina-enclave/Default.aspx.cs' });
     archive.append(modifiedCSS, { name: 'vora-skyline/marina-enclave/css/bt.css' });
 
     // Append the uploaded images to the archive
@@ -171,6 +207,8 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
         });
     }
 
+    
+
     if (req.files['bannerImages'] && req.files['bannerImages'].length > 0) {
         req.files['bannerImages'].forEach(file => {
             archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
@@ -185,6 +223,12 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
     if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
         req.files['floorPlanImg'].forEach(file => {
+            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
+        });
+    }
+
+    if (req.files['reraImg'] && req.files['reraImg'].length > 0) {
+        req.files['reraImg'].forEach(file => {
             archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
         });
     }

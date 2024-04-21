@@ -2846,7 +2846,7 @@
 
 .btn-success {
     color: #fff;
-    background: linear-gradient(152deg, #59233f, #59233f);
+    background: linear-gradient(152deg,PRIMARYCOLOR, SECONDARYCOLOR);
 }
   
   .btn-success:hover {
@@ -7097,7 +7097,7 @@
   }
 
 .bg-success {
-    background: linear-gradient(152deg, (PRIMARYCOLOR), (SECONDARYCOLOR));
+    background: linear-gradient(152deg, PRIMARYCOLOR, SECONDARYCOLOR);
 }
   
   a.bg-success:focus,

@@ -419,7 +419,6 @@
                 <div class="row">
                 <div class="col-md-7">
                     <div id="map-container-google-1" class="z-depth-1-half map-container">
-                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15072.948135665563!2d72.8581738!3d19.1848467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c116c4497f%3A0xd19c829734d953c1!2sVora%20Skyline%20Site!5e0!3m2!1sen!2sin!4v1712750554520!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            -->
                         {{MAP_IFRAME}}
                     </div>
                 </div>

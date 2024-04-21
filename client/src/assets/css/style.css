@@ -1,0 +1,25 @@
+label{
+    align-self: flex-start;
+}
+
+input,textarea{
+    width: 200px;
+}
+
+input{
+    height: 30px;
+}
+
+.box{
+    gap: 4;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+.box h1{
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 4px;
+}
