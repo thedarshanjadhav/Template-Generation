@@ -7,7 +7,9 @@ export default function AdminPanel() {
         metaDescription:'',
         metaKeywords:'',
         navbarName: '', 
-        title: '', 
+        title: '',
+        bannerImages:null, 
+        bannerAlt:'',
         pColor:'',
         sColor:'', 
         template: 'template3',
@@ -27,7 +29,7 @@ export default function AdminPanel() {
     const handleChange = (e) => {
         const { name, value, files } = e.target;
      
-        if (name === 'galleryImages' || name === 'floorPlanImg' || name === 'titleIcon' || name === 'navbarLogo') {
+        if (name === 'galleryImages' || name === 'floorPlanImg' || name === 'titleIcon' || name === 'navbarLogo' || name === 'bannerImages') {
             setFormData({ ...formData, [name]: files }); // Update state for files
         } else {
             setFormData({ ...formData, [name]: value });
@@ -63,6 +65,7 @@ export default function AdminPanel() {
             formDataToSend.append('metaKeywords', formData.metaKeywords);
             formDataToSend.append('navbarName', formData.navbarName);
             formDataToSend.append('title', formData.title);
+            formDataToSend.append('bannerAlt', formData.bannerAlt);
             formDataToSend.append('pColor', formData.pColor);
             formDataToSend.append('sColor', formData.sColor);
             formDataToSend.append('template', formData.template);
@@ -72,6 +75,12 @@ export default function AdminPanel() {
             if (formData.galleryImages) {
                 for (const img of formData.galleryImages) {
                     formDataToSend.append('galleryImages', img);
+                }
+            }
+
+            if (formData.bannerImages) {
+                for (const img of formData.bannerImages) {
+                    formDataToSend.append('bannerImages', img);
                 }
             }
 
@@ -212,7 +221,7 @@ export default function AdminPanel() {
                                 {/* row 1 */}
                                 <Flex gap={4}>
                                     <VStack>
-                                        <label htmlFor="">Banner Image</label>
+                                        <label>Banner Image</label>
                                         <input name='bannerImages' type="file" multiple required onChange={handleChange}/>
                                         <p style={{fontSize:'12px'}}>Note: choose multiple pic</p>
                                     </VStack>

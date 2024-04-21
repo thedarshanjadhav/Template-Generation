@@ -25,8 +25,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' }]), async (req, res) => {
-    const {metaKeywords, metaDescription, navbarName, title, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan } = req.body;
+app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' }]), async (req, res) => {
+    const {metaKeywords, metaDescription, navbarName, title, bannerAlt, template, pColor, sColor, amenities, typeAndCarpetArea, floorPlan } = req.body;
 
     // Path to save template files and images
     const templateFolderPath = path.join(__dirname, 'templates', template);
@@ -57,6 +57,25 @@ app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name
     if (req.files['navbarLogo'] && req.files['navbarLogo'].length > 0) {
         indexData = indexData.replace('{{NAVBAR_LOGO}}', `image/${req.files['navbarLogo'][0].originalname}`);
     }
+
+    let bannerHTML = '';
+    let bannerCarouselIndicatorHTML = '';
+
+    const bannerAltList = bannerAlt.split(',').map(item => item.trim());
+    if (req.files['bannerImages'] && req.files['bannerImages'].length > 0) {
+        req.files['bannerImages'].forEach((image, index) => {
+           
+            let carouselIndicator = index === 0 ? `<li data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>` : `<li data-target="#carouselExampleIndicators" data-slide-to="${index}"></li>`;
+
+            bannerCarouselIndicatorHTML += carouselIndicator;
+
+            const bannerAltText = bannerAltList[index];
+            const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
+            bannerHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100 resposive_height img_top" width="800" height="700" alt="${bannerAltText}"></div>`;
+        })
+    }
+    indexData = indexData.replace("{{BANNER_CAROUSEL_INDICATOR}}",bannerCarouselIndicatorHTML)
+    indexData = indexData.replace('{{BANNER_IMAGES}}', bannerHTML);
 
     // Add amenities dynamically
     const amenitiesList = amenities.split(',').map(item => item.trim());
@@ -148,6 +167,12 @@ app.post('/generate-template', upload.fields([ { name: 'galleryImages' }, { name
 
     if (req.files['navbarLogo'] && req.files['navbarLogo'].length > 0) {
         req.files['navbarLogo'].forEach(file => {
+            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
+        });
+    }
+
+    if (req.files['bannerImages'] && req.files['bannerImages'].length > 0) {
+        req.files['bannerImages'].forEach(file => {
             archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
         });
     }
