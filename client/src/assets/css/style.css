@@ -1,12 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .nav {
+    height: 4rem;
+    width: 100%;
+    background-color:f3faf7;
+    color: #00482E;
+    font-size: 26px;
+    align-items: center;
+    position: sticky;
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+  }
+  
+  input,textarea, select {
+    border: 1px solid #000000;
+    width: 200px;
+  }
+  
+  .full-body {
+    padding-top: 10px;
+    height: calc(100vh - 80px);
+    overflow: scroll;
+    background-image:url( '../image/Bg-grassroot.jpg');
+  }
+  
+
 label{
     align-self: flex-start;
 }
 
-input,textarea{
-    width: 200px;
-}
 
-input{
+input, select{
     height: 30px;
 }
 

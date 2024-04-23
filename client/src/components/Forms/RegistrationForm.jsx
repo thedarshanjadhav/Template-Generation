@@ -1,6 +1,5 @@
 import {  Flex, VStack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import '../styles/style.css'
 
 export default function RegistrationFrom() {
   const {

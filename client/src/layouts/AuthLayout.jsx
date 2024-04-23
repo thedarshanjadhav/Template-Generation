@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import '../components/styles/style.css'
+// import '../components/styles/style.css'
 
 // import { useEffect} from "react";
 // import { useSelector } from "react-redux";

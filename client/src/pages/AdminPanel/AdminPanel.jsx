@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Flex, Select, VStack, Alert, AlertIcon, Box } from '@chakra-ui/react';
+import { Button, Flex, VStack, Alert, AlertIcon, Box } from '@chakra-ui/react';
 import '../../assets/css/style.css';
 
 export default function AdminPanel() {
@@ -24,12 +24,13 @@ export default function AdminPanel() {
         overview:'',
         primaryColor:'',
         secondaryColor:'', 
-        template: 'template3',
+        template: 'template1',
         amenities: '', 
         galleryImages: null,
         galleryImagesAlt:'', 
         typeAndCarpetArea: [{ type: '', carpetArea: '', price:'' }], 
         floorPlanImg: null,
+        floorImgEffect:'no-blur',
         floorPlan: '',
         floorPlanAlt:'',
         titleIcon: null, 
@@ -101,6 +102,7 @@ export default function AdminPanel() {
             formDataToSend.append('template', formData.template);
             formDataToSend.append('amenities', formData.amenities);
             formDataToSend.append('floorPlan', formData.floorPlan);
+            formDataToSend.append("floorImgEffect", formData.floorImgEffect)
             formDataToSend.append('floorPlanAlt', formData.floorPlanAlt);
             formDataToSend.append('galleryImagesAlt', formData.galleryImagesAlt);
             formDataToSend.append('mapIframe', formData.mapIframe);
@@ -125,6 +127,7 @@ export default function AdminPanel() {
                 formDataToSend.append(`typeAndCarpetArea[${index}][type]`, entry.type);
                 formDataToSend.append(`typeAndCarpetArea[${index}][carpetArea]`, entry.carpetArea);
                 formDataToSend.append(`typeAndCarpetArea[${index}][price]`, entry.price);
+                console.log(entry.price);
             });
 
             if(formData.floorPlanImg){
@@ -394,9 +397,17 @@ export default function AdminPanel() {
                                             type="file"
                                             multiple
                                             onChange={handleChange}
-                                            style={{width: "100%"}}
+                                            // style={{width: "100%"}}
                                         />
                                     </VStack>
+                                    <VStack w={'100%'}>
+                                        <label>Image effect</label>
+                                        <select name="floorImgEffect" value={formData.floorImgEffect} style={{width:'100px'}} onChange={handleChange}>
+                                            <option value="no-blur">no blur</option>
+                                            <option value="blur">blur</option>
+                                        </select>
+                                    </VStack>
+
                                 </Flex>
 
                                 {/* second row */}
@@ -409,7 +420,9 @@ export default function AdminPanel() {
                                         <label>Floor Plan alt</label>
                                         <textarea name="floorPlanAlt" value={formData.floorPlanAlt} required onChange={handleChange} />
                                     </VStack>
+                                    
                                 </Flex>
+                            ;   
                             </VStack>
                         </Box>
 
@@ -508,13 +521,22 @@ export default function AdminPanel() {
                             <h1>Templates</h1>
                             <VStack>
                                 <label>Please choose the Template</label>
-                                <Select name="template" value={formData.template} style={{width:'100%'}} onChange={handleChange}>
-                                    <option value="template3">Template 3</option>
-                                </Select>
+                                <select name="template" value={formData.template} style={{width:'100%'}} onChange={handleChange}>
+                                    <option value="template1">Template 1</option>
+                                </select>
                             </VStack>
                        </Box>
 
-                        <Button type="submit" colorScheme="blue" isLoading={isLoading}>
+                        <Button 
+                        style={{
+                            backgroundColor:'#00482E', 
+                            color:'white', 
+                            transition: 'background-color 0.3s ease', 
+                            _hover: {
+                                backgroundColor: '#2d6b54',
+                            }
+                        }} 
+                        type="submit" isLoading={isLoading}>
                             Generate Template
                         </Button>
 

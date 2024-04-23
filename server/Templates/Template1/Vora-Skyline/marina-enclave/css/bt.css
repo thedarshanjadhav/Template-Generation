@@ -2883,7 +2883,7 @@
 
 .btn-info {
     color: #fff;
-    background: linear-gradient(152deg, #59233f, #59233f);
+    background: linear-gradient(152deg, PRIMARYCOLOR, SECONDARYCOLOR);
     border-color: #28a745
 }
   
@@ -11549,7 +11549,7 @@
   }
 
 .bg-green {
-    background: linear-gradient(152deg, #59233f, #59233f);
+    background: linear-gradient(152deg, PRIMARYCOLOR, SECONDARYCOLOR);
 }
   
   .color_white,

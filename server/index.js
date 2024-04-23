@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' },{name: 'reraImg' }]), async (req, res) => {
-    const {metaKeywords, metaDescription, navbarName, navbarAlt, title, bannerAlt, projectName, location, landArea, residencies, amenitiesHighlight, highlighter1, highlighter2, highlighter3, onwards, overview, template, primaryColor, secondaryColor, amenities, typeAndCarpetArea, floorPlan, floorPlanAlt, galleryImagesAlt, mapIframe, mapNearby, reraAlt, reraNo } = req.body;
+    const {metaKeywords, metaDescription, navbarName, navbarAlt, title, bannerAlt, projectName, location, landArea, residencies, amenitiesHighlight, highlighter1, highlighter2, highlighter3, onwards, overview, template, primaryColor, secondaryColor, amenities, typeAndCarpetArea, floorPlan, floorImgEffect, floorPlanAlt, galleryImagesAlt, mapIframe, mapNearby, reraAlt, reraNo } = req.body;
 
     // Path to save template files and images
     const templateFolderPath = path.join(__dirname, 'templates', template);
@@ -100,7 +100,20 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
             const carouselIndicator = index === 0 ? `<li data-target="#carouselExampleIndicators1" data-slide-to="${index}" class="active"></li>` : `<li data-target="#carouselExampleIndicators1" data-slide-to="${index}"></li>`;
 
             galleryCarouselIndicatorHTML += carouselIndicator;
-            galleryImagesHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="${galleryAltText}"></div>`;
+            // galleryImagesHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100" height="300px" width="300px" alt="${galleryAltText}"></div>`;
+
+            galleryImagesHTML += `<div class="${carouselItemClass}">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Avant Heritage  Balcony">
+                <title>${galleryAltText}</title>
+                <defs>
+                    <clipPath id="gsl1">
+                        <rect width="100%" height="100%" fill="#555"></rect>
+                    </clipPath>
+                    <text x="50%" y="50%" fill="#333" dy=".3em">${galleryAltText}</text>
+                </defs>
+                <image width="100%" height="100%" xlink:href="/image/${image.originalname}" clip-path="url(#gsl1)" alt="${galleryAltText}" />
+            </svg>
+        </div>`;
         });
     }
 
@@ -112,10 +125,11 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     // Add Type and CarpetArea dynamically
     let  typeAndCarpetAreaHTML = '';
     typeAndCarpetArea.forEach(item =>{
+        const price = item.price !== 'undefined' ? `${item.price}` : '';
         typeAndCarpetAreaHTML += `<tr>
         <td style="text-align:center;">${item.type} BHK</td>
         <td style="text-align:center;">${item.carpetArea} SQ.FT</td>
-        <td style="text-align:center;">&#8377;${item.price} On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
+        <td style="text-align:center;">&#8377;${price} On Request <br> &nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
     </tr> `;
     });
 
@@ -132,6 +146,8 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
             const floorPlanText = floorPlanList[index];
             const floorPlanAltText = floorPlanAltList[index];
 
+            const imageEffectStyle = floorImgEffect === 'blur' ? 'style="filter: blur(4px); -webkit-filter: blur(4px);"' : '';
+
             // Generate HTML for each floor plan item
             floorPlanHTML += `<div class="col-md-4" style="margin-bottom: 10px;">
                 <div class="card1">
@@ -143,7 +159,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                                 <text x="35%" y="50%" fill="#dee2e6" dy=".3em">${floorPlanText}</text>
                             </clipPath>
                         </defs>
-                        <image width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanAltText}" />
+                        <image ${imageEffectStyle} width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanAltText}" />
                     </svg>
                     <div class="p-2 bg-success effetMoveGradient text-center aq">
                         <h5 class="card-title text-light">${floorPlanText}</h5>

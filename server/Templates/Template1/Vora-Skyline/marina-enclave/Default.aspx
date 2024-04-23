@@ -25,7 +25,7 @@
 
 
                 <a class="" href="#home">
-                <img width="150" height="48" src="{{NAVBAR_LOGO}}" class="logo p-1" style="filter:invert(100%);"   alt="{{NAVBAR_ALT}}" >
+                <img width="150" height="48" src="{{NAVBAR_LOGO}}" class="logo p-1" alt="{{NAVBAR_ALT}}" >
                 </a> 
                 <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" id="burger" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                    <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
                             <a class="nav-link" href="#Floor_plan"><i class="fa fa-building" aria-hidden="true"></i>Floorplan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#Amenities"><i class="fa fa-cutlery font-weight-bold nav-icon"></i> Amenities</a>
+                            <a class="nav-link" href="#Amenities"><i class="fa fa-cutlery font-weight-bold nav-icon" aria-hidden="true"></i> Amenities</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#gallery"><i class="fa fa-image"></i> Gallery</a>
@@ -67,20 +67,11 @@
 <div class="flex-row  position-relative no-gutter">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li> -->
 
             {{BANNER_CAROUSEL_INDICATOR}}
         </ol>
         <div class="carousel-inner">
-            <!-- <div class="carousel-item active">
-                    <image class="d-block w-100 resposive_height img_top" width="800" height="700" src="img/Vora-Skyline-Malad-Codeword-Edge.jpg" alt="Vora-Skyline-Codeword-Edge-Nigth-View" />
-            </div>
-            <div class="carousel-item">
-                <image class="d-block w-100 resposive_height img_top" width="800" height="700" src="img/Vora-Skyline-Malad-Retail-Close-up.jpg" alt="Vora-Skyline-Codeword-Edge-Close-up" />
-                    
-            </div> -->
-
+           
             {{BANNER_IMAGES}}
         </div>
     </div>
@@ -167,21 +158,7 @@
                                                 <th style="text-align:center;">Price</th>
                                             </tr>
                                             {{TYPE_AND_CARPET_AREA}}
-                                            <!-- <tr>
-                                                <td style="text-align:center;">Office 1</td>
-                                                <td style="text-align:center;">437 - 535 SQ.FT</td>
-                                                <td style="text-align:center;">&#8377;1.14 Cr* Onwards <br /> On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ"> Price Breakup</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align:center;">Office 2</td>
-                                                <td style="text-align:center;">588 - 1079 SQ.FT</td>
-                                                <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align:center;">Shop	</td>
-                                                <td style="text-align:center;">2177 - 2711 SQ.FT</td>
-                                                <td style="text-align:center;">&#8377;On Request&nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
-                                            </tr> -->
+                                           
                                                                                       
                                         </table>
                                     </div>
@@ -213,7 +190,6 @@
                               
                         </div>
                      
-
                     </div>
                 </div>
                 
@@ -225,78 +201,6 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <!-- <div class="col-md-4" style="margin-bottom: 10px;">
-                                <div class="card1" >
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Typical Plan">
-                                        <title>Typical Plan</title>
-                                        <defs>
-                                            <clipPath id="fl1">
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">Typical Plan</text>
-                                            </clipPath>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="/img/Vora-Skyline-Malad-Typical-Floor-Plan.jpg" clip-path="url(#fl1)" alt="Vora-Skyline-Typical-Plan" />
-                                    </svg>
-                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
-                                        <h5 class="card-title text-light">Typical Plan</h5>
-                                      
-                                    </div>
-                                     
-                                    <div class="overlay">
-                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"  data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                           
-                             <div class="col-md-4" style="margin-bottom: 10px;">
-                                <div class="card1" >
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Upper Ground Plan">
-                                        <title>Upper Ground Plan</title>
-                                        <defs>
-                                            <clipPath id="fl1">
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">Upper Ground Plan</text>
-                                            </clipPath>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="img/Vora-Skyline-Malad-Upper-Ground-Floor-Plan.jpg" clip-path="url(#fl1)" alt="Vora-Skyline-Upper-Ground-Floor-Plan"/>
-                                    </svg>
-                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
-                                        <h5 class="card-title text-light">Upper Ground Plan</h5>
-                                      
-                                    </div>
-                                     
-                                    <div class="overlay">
-                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"  data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
-                           <div class="col-md-4" style="margin-bottom: 10px;">
-                                <div class="card1" >
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="1st Floor Plan">
-                                        <title>1st Floor Plan</title>
-                                        <defs>
-                                            <clipPath id="fl1">
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="35%" y="50%" fill="#dee2e6" dy=".3em">1st Floor Plan</text>
-                                            </clipPath>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="img/Vora-Skyline-Malad-1st-Floor-Plan.jpg" clip-path="url(#fl1)" alt="Vora-Skyline-1st-Floor-Plan" 
-                                            />
-                                    </svg>
-                                    <div class="p-2 bg-success effetMoveGradient text-center aq ">
-                                        <h5 class="card-title text-light">1st Floor Plan</h5>
-                                      
-                                    </div>
-                                     
-                                    <div class="overlay">
-                                        <div class="text overlay-text" data-toggle="modal" data-target="#myModal"  data-title="Send Me Floor Plan Details" id="floorplan">ENQUIRE NOW</div>
-                                    </div>
-                                    
-                                </div>
-                            </div> -->
 
                             {{FLOORPLAN}}
                         
@@ -311,9 +215,7 @@
                     <div class="card-body">
                         <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <!-- <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators1" data-slide-to=""></li>
-                                <li data-target="#carouselExampleIndicators1" data-slide-to=""></li> -->
+                 
                                 {{GALLERY_CAROUSEL_INDICATOR}}
                                 
                             </ol>
@@ -321,55 +223,7 @@
                             <div class="carousel-inner">
                                 
                                 {{GALLERY_IMAGES}} 
-
-                                <!-- <div class="carousel-item active">
-                                    <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Vora Skyline">
-                                        <title>Codeword Edge Night View</title>
-                                        <defs>
-                                            <clipPath id="gsl1">
-                                                <rect width="100%" height="100%" fill="#555"></rect>
-                                            </clipPath>
-                                            <text x="50%" y="50%" fill="#333" dy=".3em">Codeword Edge Night View</text>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="/img/Vora-Skyline-Malad-Codeword-Edge.jpg" clip-path="url(#gsl1)" alt="Vora-Skyline-Night-View" />
-                                    </svg>
-                                </div>
-                                
-                               
-                                
-                                <div class="carousel-item">
-                                    <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Vora Skyline">
-                                        <title>Retail Close up</title>
-                                        <defs>
-                                            <clipPath id="gsl2">
-                                                <rect width="100%" height="100%" fill="#555"></rect>
-                                            </clipPath>
-                                            <text x="50%" y="50%" fill="#333" dy=".3em">Retail Close up</text>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="/img/Vora-Skyline-Malad-Retail-Close-Up.jpg" clip-path="url(#gsl2)" alt="Vora-Skyline-Retail-Close-up" />
-                                    </svg>
-                                </div>
-                             
-                                
-                            
-                                <div class="carousel-item">
-                                    <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Vora Skyline">
-                                        <title>Reception Lobby</title>
-                                        <defs>
-                                            <clipPath id="gsl2">
-                                                <rect width="100%" height="100%" fill="#555"></rect>
-                                            </clipPath>
-                                            <text x="50%" y="50%" fill="#333" dy=".3em">Reception Lobby</text>
-                                        </defs>
-                                        <image width="100%" height="100%" xlink:href="/img/Vora-Skyline-Malad-Reception-Lobby-View.jpg" clip-path="url(#gsl2)" alt="Vora-Skyline-Reception-Lobby" />
-                                    </svg>
-                                </div> -->
-
-                               
-
-                               
-                                
-                                                              
+                              
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -394,14 +248,7 @@
                 <div class="card-body">
                     <div class="row"> 
                         {{AMENITIES_PLACEHOLDER}}
-                        <!-- <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> BOUTIQUE OFFICE SPACES</div> 
-                         <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> DESIGNED TO MAXIMIZE NATURAL LIGHTING</div> 
-                        <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> GRAND ENTRANCE LOBBY</div> 
-                        <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> 10 HIGH-SPEED ELEVATORS</div> 
-                         <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> 2 LEVELS OF RETAIL</div> 
-                        <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> 9 LEVELS OF PARKING</div> 
-                        <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> ROOFTOP LOUNGE</div> 
-                        <div class="col-md-4 my-2"><i class="far fa-hand-point-right icon_style"></i> CAFETERIA & CHILL-OUT ZONES</div>  -->
+                        
                     <span id="map"> </span>
                     </div>
                 </div>
@@ -426,33 +273,7 @@
                <div class="col-md-5">
 
                 {{MAP_NEARBY}}
-                    <!-- <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>WESTERN EXPRESS HIGHWAY – 01 min</b>
-                    </div>
-                    <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>KURAR METRO STATION - 01 min</b>
-                    </div>
-                    <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>OBEROI MALL – 01 min</b>
-                    </div>
-                    <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>S.V ROAD – 10 min</b>
-                    </div>
-                    <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>MALAD RAILWAY STATION – 10 min</b>
-                    </div>
-                     <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>WESTIN – 10 min</b>
-                    </div>
-                     <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>LINKING ROAD – 15 min</b>
-                    </div>
-                     <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>MUMBAI AIRPORT – 15 min</b>
-                    </div>
-                     <div class="my-2"  style="overflow-x:unset;"><span class="dots">
-                        <i class="fa fa-circle"></i></span>NESCO – 15 min</b>
-                    </div> -->
+                    
 
                     </div>
                    </div>        
