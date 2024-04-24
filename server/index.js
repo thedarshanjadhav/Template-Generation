@@ -208,45 +208,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     archive.append(indexData, { name: 'vora-skyline/marina-enclave/Default.aspx' });
     archive.append(jsData, { name: 'Vora-Skyline/marina-enclave/Default.aspx.cs' });
     archive.append(modifiedCSS, { name: 'vora-skyline/marina-enclave/css/bt.css' });
-
-    // Append the uploaded images to the archive
-    if (req.files['titleIcon'] && req.files['titleIcon'].length > 0) {
-        req.files['titleIcon'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
-
-    if (req.files['navbarLogo'] && req.files['navbarLogo'].length > 0) {
-        req.files['navbarLogo'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
-
-    
-
-    if (req.files['bannerImages'] && req.files['bannerImages'].length > 0) {
-        req.files['bannerImages'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
-
-    if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
-        req.files['galleryImages'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
-
-    if (req.files['floorPlanImg'] && req.files['floorPlanImg'].length > 0) {
-        req.files['floorPlanImg'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
-
-    if (req.files['reraImg'] && req.files['reraImg'].length > 0) {
-        req.files['reraImg'].forEach(file => {
-            archive.file(file.path, { name: `vora-skyline/marina-enclave/image/${file.originalname}` });
-        });
-    }
+   
 
     // Append template files to the archive
     appendFilesRecursively(archive, templateFolderPath, templateFolderPath);
@@ -264,7 +226,7 @@ function appendFilesRecursively(archive, folderPath, basePath) {
         const filePath = path.join(folderPath, file);
         const relativePath = path.relative(basePath, filePath);
         const stats = fs.statSync(filePath);
-        if (stats.isFile() && file !== 'Default.aspx' && !filePath.endsWith('.css')) {
+        if (stats.isFile() && file !== 'Default.aspx' && file !== 'Default.aspx.cs' && !filePath.endsWith('.css')) {
             archive.file(filePath, { name: relativePath });
         } else if (stats.isDirectory()) {
             appendFilesRecursively(archive, filePath, basePath);
