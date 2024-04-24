@@ -324,9 +324,9 @@
     <div class="col-md-3 col-lg-3 col-xl-3 col-md col-xs-12">
         <div class="container text-center">
             <div class="sidebar d-none d-sm-block d-sm-none d-md-block responsive-width">
-                <button id="desktop-whatsapp" type="button" class="btn btn-primary btn-dark btn-sm" onclick="window.open('https://api.whatsapp.com/send?phone=+919321936503&text=Hi!%20I\'m%20Interested%20In%20 *Avant Heritage *.%20Please%20Share%20Details.', '_blank');"><i class='fab fa-whatsapp' style="width: 22px;"></i>+91 9321936503</button><br>
+                <button id="desktop-whatsapp" type="button" class="btn btn-primary btn-dark btn-sm" onclick="window.open('https://api.whatsapp.com/send?phone=+919321936503&text=Hi!%20I\'m%20Interested%20In%20 *Avant Heritage *.%20Please%20Share%20Details.', '_blank');"><i class='fab fa-whatsapp' style="width: 22px;"></i>+91 {{CONTACT}}</button><br>
                 <a href="tel:+91 9321936503"><button id="desktop-call" type="button" class="btn btn-primary effetMoveGradient btn-success btn-sm" style=" margin: 10px;">
-                    <i class="fa fa-phone" style="rotate: 100deg;"></i>+91 9321936503</button></a>
+                    <i class="fa fa-phone" style="rotate: 100deg;"></i>+91 {{CONTACT}}</button></a>
                 <div id="contact_rightform">
                  <div class="card-title">
                     Pre-Register here for Best Offers

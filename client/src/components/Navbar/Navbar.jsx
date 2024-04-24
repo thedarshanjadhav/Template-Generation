@@ -10,7 +10,7 @@ export default function Navbar(){
         <Link to={'/'} style={{width: '10rem'}}>
           <img src={grassrootLogo} width='100%'></img>
         </Link>
-        <Link to={'/admin-panel'} style={{fontWeight:600}}>AdminPanel</Link>
+        <Link to={'/admin-panel'} style={{fontWeight:600, fontSize:'18px', fontFamily:'roboto sans-serif'}}>AdminPanel</Link>
       </Flex>
     )
 }

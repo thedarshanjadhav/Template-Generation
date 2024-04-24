@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Flex, VStack, Alert, AlertIcon, Box } from '@chakra-ui/react';
+import { Button, Flex, VStack, Box } from '@chakra-ui/react';
 import '../../assets/css/style.css';
+import Notification from '../../components/Notification/Notification';
 
 export default function AdminPanel() {
     const initialFormData = { 
@@ -24,6 +25,7 @@ export default function AdminPanel() {
         overview:'',
         primaryColor:'',
         secondaryColor:'', 
+        contact:'',
         template: 'template1',
         amenities: '', 
         galleryImages: null,
@@ -75,8 +77,24 @@ export default function AdminPanel() {
         setFormData({ ...formData, typeAndCarpetArea: updatedTypeAndCarpetArea });
     };
     
+    // validation function for contact
+    const validateContactNumber = (contact) => {
+        const regex = /^[6789]\d{9}$/; // Regular expression for Indian phone numbers
+        return regex.test(contact);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // error msg for contact
+        if (!validateContactNumber(formData.contact)) {
+            setErrorMessage('Please enter a valid Indian contact number.');
+            setTimeout(() => {
+                setErrorMessage('');
+            }, 3000);
+            return;
+        }
+
         setIsLoading(true);
         try {
             const formDataToSend = new FormData();
@@ -99,6 +117,7 @@ export default function AdminPanel() {
             formDataToSend.append('overview', formData.overview);
             formDataToSend.append('primaryColor', formData.primaryColor);
             formDataToSend.append('secondaryColor', formData.secondaryColor);
+            formDataToSend.append('contact', formData.contact);
             formDataToSend.append('template', formData.template);
             formDataToSend.append('amenities', formData.amenities);
             formDataToSend.append('floorPlan', formData.floorPlan);
@@ -183,18 +202,12 @@ export default function AdminPanel() {
 
     return (
         <>
-            {successMessage && (
-                <Alert status="success">
-                    <AlertIcon />
-                    {successMessage}
-                </Alert>
-            )}
-            {errorMessage && (
-                <Alert status="error">
-                    <AlertIcon />
-                    {errorMessage}
-                </Alert>
-            )}
+            {/* Notification for success */}
+            {successMessage && <Notification message={successMessage} status="success" />}
+
+            {/* Notification for error */}
+            {errorMessage && <Notification message={errorMessage} status="error" />}
+
             <VStack w="100%">
                 <form onSubmit={handleSubmit}>
                     <VStack gap={2} border="2px solid black" padding="10px">
@@ -344,10 +357,10 @@ export default function AdminPanel() {
                         {/*  Price */}
                         <Box className='box'>
                             <h1>Price</h1>
-                            <VStack>
+                            <VStack> 
                                 {formData.typeAndCarpetArea.map((entry, index) => (
                                 <div key={index}>
-                                <Flex gap={4}>
+                                <Flex gap={4} pb={'8px'}>
                                     <VStack>
                                     <label>Type</label>
                                     <input
@@ -375,7 +388,7 @@ export default function AdminPanel() {
                                         style={{alignSelf:'start'}}
                                         onChange={(e) => handleTypeAndCarpetAreaChange(index, 'price', e.target.value)}
                                     />
-                                    </VStack>
+                                </VStack>
                             
                                 <button type="button" onClick={() => removeTypeAndCarpetAreaRow(index)}>Remove</button>
                             </div>
@@ -397,7 +410,6 @@ export default function AdminPanel() {
                                             type="file"
                                             multiple
                                             onChange={handleChange}
-                                            // style={{width: "100%"}}
                                         />
                                     </VStack>
                                     <VStack w={'100%'}>
@@ -513,6 +525,17 @@ export default function AdminPanel() {
                                     <label>Secondary Color</label>
                                     <input name="secondaryColor" type="text" value={formData.secondaryColor} required onChange={handleChange} />
                                 </VStack>
+                            </Flex>
+                        </Box>
+
+                        <Box className='box'>
+                            <h1>Contact No</h1>
+                            <Flex gap={4}>
+                                <VStack>
+                                    <label>SM Contact</label>
+                                    <input name="contact" type="number" value={formData.contact} required onChange={handleChange} />
+                                </VStack>
+                    
                             </Flex>
                         </Box>
 
