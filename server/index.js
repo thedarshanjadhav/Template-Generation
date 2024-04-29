@@ -4,16 +4,95 @@ const fs = require('fs');
 const archiver = require('archiver');
 const path = require('path');
 const multer = require('multer');
-const rimraf = require('rimraf');
 const app = express();
+const mongoose = require('mongoose');
+const userModel = require('./models/user');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+
 
 app.use(cors());
 app.use(express.json());
+
+mongoose.connect("mongodb://127.0.0.1:27017/Grassroot");
+
 
 app.get('/', (req, res) => {
     res.send('Hello, Template generator here!');
 });
 
+// -----------------------added username and password-------------------------------------
+
+// const users = [
+//     { username: 'dj363', password: '123', email: 'dj@gmail.com' },
+//     { username: 'hey', password: '123', email: 'hey@gmail.com' },
+//     { username: 'user1', password: 'password1', email: 'user1@example.com' },
+//     { username: 'user2', password: 'password2', email: 'user2@example.com' },
+//     // Add more user data as needed
+// ];
+
+// async function hashPasswordsAndInsert() {
+//     try {
+//         const saltRounds = 10;
+
+//         // Hash passwords for each user
+//         const usersWithHashedPasswords = await Promise.all(users.map(async (user) => {
+//             const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+//             return { ...user, password: hashedPassword };
+//         }));
+
+//         // Insert users with hashed passwords into the database
+//         await userModel.insertMany(usersWithHashedPasswords);
+
+//         console.log('Passwords hashed and users inserted successfully.');
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }
+
+// // Execute the function
+// hashPasswordsAndInsert();
+
+// -----------------------------------------------------------------------
+
+// Generate a random secret key
+const secretKey = crypto.randomBytes(32).toString('hex');
+
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await userModel.findOne({ username });
+  
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+  
+        const isValidPassword = await bcrypt.compare(password, user.password);
+  
+        if (!isValidPassword) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+  
+
+        const token = jwt.sign(
+            { userId: user._id, username: user.username },
+            secretKey,
+            { expiresIn: '1h' }
+        );
+  
+        // Send the token in response
+        res.json({ token });
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
+
+// For Generating the Template
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, 'templates', req.body.template, 'Vora-Skyline', 'marina-enclave', 'image'));
@@ -24,6 +103,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+
 
 app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: 'galleryImages' }, { name: 'floorPlanImg' },{ name: 'titleIcon' },{ name: 'navbarLogo' },{name: 'reraImg' }]), async (req, res) => {
     const {metaKeywords, metaDescription, navbarName, navbarAlt, title, bannerAlt, projectName, location, landArea, residencies, amenitiesHighlight, highlighter1, highlighter2, highlighter3, onwards, overview, template, primaryColor, secondaryColor, contact, amenities, typeAndCarpetArea, floorPlan, floorImgEffect, floorPlanAlt, galleryImagesAlt, mapIframe, mapNearby, reraAlt, reraNo } = req.body;
@@ -242,6 +323,7 @@ function clearImageFolder(folderPath) {
         fs.unlinkSync(filePath); // Remove the file
     });
 }
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

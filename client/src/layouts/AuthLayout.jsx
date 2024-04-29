@@ -1,31 +1,29 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-// import '../components/styles/style.css'
+import { useState } from "react";
 
-// import { useEffect} from "react";
-// import { useSelector } from "react-redux";
-
-export default function AuthLayout(){
-
-    // const navigate = useNavigate();
-    // const {auth} = useSelector((state) => state.auth)
-
-    // useEffect(() => {
-    //     if(!auth.isLoggedIn){
-    //         navigate('/login');
-    //     }
-    // }, [auth.isLoggedIn, navigate]);
+export default function AuthLayout() {
+    const [auth] = useState({ token: localStorage.getItem('token') });
 
 
-    return(
+
+    console.log("Auth token:", auth.token);
+
+    // Redirect to login if no token or token is 'null'
+    if (!auth.token || auth.token === 'null') {
+        return <Navigate to="/login" />;
+    }
+
+    // If token is present, render the admin panel
+    return (
         <div className="main">
-            <div className = "nav">
+            <div className="nav">
                 <Navbar />
             </div>
-            
+
             <div className="full-body">
                 <Outlet />
             </div>
-       </div>
-    )
+        </div>
+    );
 }

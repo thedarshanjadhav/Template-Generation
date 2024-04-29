@@ -1,3 +1,5 @@
+// ! need to remove this before adding to production
+
 import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
 import HomePage from "../pages/HomePage/HomePage";
