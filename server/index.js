@@ -78,8 +78,8 @@ app.post('/login', async (req, res) => {
         const token = jwt.sign(
             { userId: user._id, username: user.username },
             secretKey,
-            { expiresIn: '1h' }
-        );
+            { expiresIn: '2h' }
+        );  
   
         // Send the token in response
         res.json({ token });
@@ -207,7 +207,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     typeAndCarpetArea.forEach(item =>{
         const price = item.price !== 'undefined' ? `${item.price}` : '';
         typeAndCarpetAreaHTML += `<tr>
-        <td style="text-align:center;">${item.type} BHK</td>
+        <td style="text-align:center;">${item.type} </td>
         <td style="text-align:center;">${item.carpetArea} SQ.FT</td>
         <td style="text-align:center;">&#8377;${price} On Request <br> &nbsp;&nbsp;<button type="button" class="btn btn-success effetMoveGradient btn-sm" data-toggle="modal" data-target="#myModal"  data-title="Send Me Pricing Details" id="price_equ">Price Breakup</button></td>
     </tr> `;

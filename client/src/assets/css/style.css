@@ -4,6 +4,8 @@
     
   }
   
+
+  /* Navbar */
   .nav {
     height: 4rem;
     width: 100%;
@@ -20,8 +22,33 @@
     font-weight: 600; 
     font-size : 18px;
     font-family : roboto sans-serif;
+    text-decoration: none; /* Remove default underline */
+    position: relative;
   }
-  
+
+  .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #007B5F;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* -----------------------------------------   */
+
+
   input,textarea, select {
     border: 1px solid #000000;
     width: 200px;
@@ -58,3 +85,4 @@ input, select{
     padding-bottom: 4px;
     font-family: roboto sans-serif
 }
+

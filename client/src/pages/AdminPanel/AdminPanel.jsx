@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Flex, VStack, Box } from '@chakra-ui/react';
+import { Button, Flex, VStack, Box, Show } from '@chakra-ui/react';
 import '../../assets/css/style.css';
 import Notification from '../../components/Notification/Notification';
 
@@ -208,6 +208,7 @@ export default function AdminPanel() {
             {/* Notification for error */}
             {errorMessage && <Notification message={errorMessage} status="error" />}
 
+            <Show above='sm'>
             <VStack w="100%">
                 <form onSubmit={handleSubmit}>
                     <VStack gap={2} border="2px solid black" padding="10px">
@@ -341,14 +342,14 @@ export default function AdminPanel() {
                                 <Flex gap={4} w='100%'>
                                     <VStack>
                                         <label>Onwards</label>
-                                        <textarea name="onwards" cols={54} rows={1} style={{width:'100%', height:'30px'}} required onChange={handleChange}></textarea>
+                                        <textarea name="onwards" cols={54} rows={3} style={{width:'100%', height:'50px'}} required onChange={handleChange}></textarea>
                                     </VStack>
                                 </Flex>
                                 {/* row 7 */}
                                 <Flex gap={4} w='100%'>
                                     <VStack>
                                         <label>Overview</label>
-                                        <textarea name="overview" cols={54} rows={1} style={{width:'100%', height:'30px'}} required onChange={handleChange}></textarea>
+                                        <textarea name="overview" cols={54} rows={3} style={{width:'100%', height:'50px'}} required onChange={handleChange}></textarea>
                                     </VStack>
                                 </Flex>
                             </VStack>
@@ -508,7 +509,7 @@ export default function AdminPanel() {
 
                                     <VStack>
                                         <label>Rera alt</label>
-                                        <input name="reraAlt" type="text" value={formData.reraAlt} required onChange={handleChange} />
+                                        <input name="reraAlt" type="text" value={formData.reraAlt} onChange={handleChange} />
                                     </VStack>
                                 </Flex>
                             </VStack>
@@ -566,6 +567,7 @@ export default function AdminPanel() {
                     </VStack>
                 </form>
             </VStack>
+            </Show>
         </>
     );
 }

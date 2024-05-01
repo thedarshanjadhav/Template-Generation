@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import { useState } from "react";
+import { Show } from "@chakra-ui/react";
 
 export default function AuthLayout() {
     const [auth] = useState({ token: localStorage.getItem('token') });
@@ -17,9 +18,11 @@ export default function AuthLayout() {
     // If token is present, render the admin panel
     return (
         <div className="main">
-            <div className="nav">
-                <Navbar />
-            </div>
+            <Show above='sm'>
+                <div className="nav">
+                    <Navbar />
+                </div>
+            </Show>
 
             <div className="full-body">
                 <Outlet />

@@ -1,8 +1,7 @@
-// import React from 'react';
+
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage/HomePage';
-// import AdminPanel from './pages/AdminPanel/AdminPanel';
 import LoginForm from './components/Forms/LoginForm';
 import { createContext, useReducer } from 'react';
 import AuthLayout from './layouts/AuthLayout';
@@ -27,8 +26,14 @@ export const Routing =() => {
     )
 }
 
+
+
+
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    
+
   return (
     <>
         <UserContext.Provider value={{state, dispatch}}>

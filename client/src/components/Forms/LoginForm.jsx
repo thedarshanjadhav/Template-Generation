@@ -31,7 +31,6 @@ export default function LoginForm(){
             localStorage.setItem('token', token);
             localStorage.setItem('successMessage', 'Login successful!'); // Store success message
             dispatch({type: "USER", payload: true})
-            // window.alert("Login Successful!")
             navigate('/');
         } catch (error) {
             console.error("Login error:", error);

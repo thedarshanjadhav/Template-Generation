@@ -89,7 +89,7 @@
                 <p>
                 <i class="fa fa-caret-left p-2"></i> Land Area : <span style="padding:5px;">{{LAND_AREA}}</span>
                 <br />
-                <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">Possession: {{RESIDENCIES}}</span>
+                <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">{{RESIDENCIES}}</span>
                 <br />
                 <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">{{AMENITIES_HIGHLIGHT}}</span>
                  
@@ -157,9 +157,7 @@
                                                 <th style="text-align:center;">Carpet Area</th>
                                                 <th style="text-align:center;">Price</th>
                                             </tr>
-                                            {{TYPE_AND_CARPET_AREA}}
-                                           
-                                                                                      
+                                            {{TYPE_AND_CARPET_AREA}}                                          
                                         </table>
                                     </div>
                                 </div>
@@ -201,10 +199,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-
                             {{FLOORPLAN}}
-                        
-                        
                     </div>
                 </div>
             <!-- /* Floorplan section End */ -->
