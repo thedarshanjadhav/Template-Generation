@@ -32,8 +32,6 @@ export default function Navbar() { // Check if props are received correctly
         return (
             <>
                 <Link to={"/"} className={`nav-link ${pathname === "/" ? "active" : ""}`}>Home</Link>
-                <Link to={"/about"} className={`nav-link ${pathname === "/about" ? "active" : ""}`}>About</Link>
-                <Link to={"/contact"} className={`nav-link ${pathname === "/contact" ? "active" : ""}`}>Contact</Link>
                 <Link to={'/admin-panel'} className={`nav-link ${pathname === "/admin-panel" ? "active" : ""}`}>Admin Panel</Link>
                 <Link to={'/'} className="nav-link" onClick={handleLogout}>Logout</Link>
             </>
@@ -42,8 +40,6 @@ export default function Navbar() { // Check if props are received correctly
         return (
             <>
                 <Link to={"/"} className={`nav-link ${pathname === "/" ? "active" : ""}`}>Home</Link>
-                <Link to={"/about"} className={`nav-link ${pathname === "/about" ? "active" : ""}`}>About</Link>
-                <Link to={"/contact"} className={`nav-link ${pathname === "/contact" ? "active" : ""}`}>Contact</Link>
                 <Link to={'/admin-panel'} className={`nav-link ${pathname === "/admin-panel" ? "active" : ""}`}>Admin Panel</Link>
                 <Link to={'/login'} className={`nav-link ${pathname === "/login" ? "active" : ""}`} onClick={handleLogout}>Login</Link>
             </>
