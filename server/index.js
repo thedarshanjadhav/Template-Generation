@@ -118,7 +118,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     // Set response headers
     res.set({
         'Content-Type': 'application/zip',
-        'Content-Disposition': `attachment; filename="${navbarName}-${template}-portfolio-template.zip"`
+        'Content-Disposition': `attachment; filename="${navbarName}-${template}-template.zip"`
     });
 
     // Pipe the zip stream directly to the response
@@ -129,7 +129,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     let indexData = fs.readFileSync(indexPath, 'utf8');
 
     // Replace placeholders with actual values
-            indexData = indexData.replace('{{NAVBAR_NAME}}', navbarName).replace('{{TITLE}}', title).replace('{{META_KEYWORDS}}', metaKeywords).replace('{{META_DESCRIPTION}}', metaDescription).replace('{{PROJECT_NAME}}', projectName).replace('{{NAVBAR_ALT}}',navbarAlt).replace('{{LOCATION}}', location).replace('{{LAND_AREA}}',landArea).replace('{{RESIDENCIES}}',residencies).replace('{{AMENITIES_HIGHLIGHT}}',amenitiesHighlight).replace('{{HIGHLIGHTER1}}',highlighter1).replace('{{HIGHLIGHTER2}}',highlighter2).replace('{{HIGHLIGHTER3}}',highlighter3).replace('{{ONWARDS}}',onwards).replace('{{OVERVIEW}}', overview).replace('{{MAP_IFRAME}}',mapIframe).replace('{{RERA_Alt}}', reraAlt).replace('{{RERA_NO}}', reraNo).replace(/{{CONTACT}}/g, contact);
+            indexData = indexData.replace('{{NAVBAR_NAME}}', navbarName).replace('{{TITLE}}', title).replace('{{META_KEYWORDS}}', metaKeywords).replace('{{META_DESCRIPTION}}', metaDescription).replace(/{{PROJECT_NAME}}/g, projectName).replace('{{NAVBAR_ALT}}',navbarAlt).replace('{{LOCATION}}', location).replace('{{LAND_AREA}}',landArea).replace('{{RESIDENCIES}}',residencies).replace('{{AMENITIES_HIGHLIGHT}}',amenitiesHighlight).replace('{{HIGHLIGHTER1}}',highlighter1).replace('{{HIGHLIGHTER2}}',highlighter2).replace('{{HIGHLIGHTER3}}',highlighter3).replace('{{ONWARDS}}',onwards).replace('{{OVERVIEW}}', overview).replace('{{MAP_IFRAME}}',mapIframe).replace('{{RERA_Alt}}', reraAlt).replace('{{RERA_NO}}', reraNo).replace(/{{CONTACT}}/g, contact);
 
     if (req.files['titleIcon'] && req.files['titleIcon'].length > 0) {
         indexData = indexData.replace('{{TITLE_ICON}}', `image/${req.files['titleIcon'][0].originalname}`);
@@ -152,7 +152,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
             const bannerAltText = bannerAltList[index];
             const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
-            bannerHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100 resposive_height img_top" width="800" height="700" alt="${bannerAltText}"></div>`;
+            bannerHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100 resposive_height img_top" width="800" height="700" alt="${projectName}-${bannerAltText}"></div>`;
         })
     }
     indexData = indexData.replace("{{BANNER_CAROUSEL_INDICATOR}}",bannerCarouselIndicatorHTML)
@@ -191,7 +191,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                     </clipPath>
                     <text x="50%" y="50%" fill="#333" dy=".3em">${galleryAltText}</text>
                 </defs>
-                <image width="100%" height="100%" xlink:href="/image/${image.originalname}" clip-path="url(#gsl1)" alt="${galleryAltText}" />
+                <image width="100%" height="100%" xlink:href="/image/${image.originalname}" clip-path="url(#gsl1)" alt="${projectName}-${galleryAltText}" />
             </svg>
         </div>`;
         });
@@ -239,7 +239,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                                 <text x="35%" y="50%" fill="#dee2e6" dy=".3em">${floorPlanText}</text>
                             </clipPath>
                         </defs>
-                        <image ${imageEffectStyle} width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanAltText}" />
+                        <image ${imageEffectStyle} width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${projectName}-${floorPlanAltText}" />
                     </svg>
                     <div class="p-2 bg-success effetMoveGradient text-center aq">
                         <h5 class="card-title text-light">${floorPlanText}</h5>
@@ -258,8 +258,8 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     const mapNearbyList = mapNearby.split(',').map((item) => item.trim());
     let mapNearbyHTML = "";
     mapNearbyList.forEach(nearBy => {
-        mapNearbyHTML += `<div class="my-2"  style="overflow-x:unset;"><span class="dots">
-        <i class="fa fa-circle"></i></span>${nearBy}</b>
+        mapNearbyHTML += `<div class="my-2" style="overflow-x:unset;">
+        <span class="dots"><i class="fa fa-circle"></i></span>${nearBy}</b>
     </div>`;
     })
 
