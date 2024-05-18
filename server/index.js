@@ -78,7 +78,6 @@ app.post('/login', async (req, res) => {
         const token = jwt.sign(
             { userId: user._id, username: user.username },
             secretKey,
-            { expiresIn: '2h' }
         );  
   
         // Send the token in response
@@ -133,6 +132,8 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
     if (req.files['titleIcon'] && req.files['titleIcon'].length > 0) {
         indexData = indexData.replace('{{TITLE_ICON}}', `image/${req.files['titleIcon'][0].originalname}`);
+    } else{
+        indexData = indexData.replace('{{TITLE_ICON}}', ' ');
     }
     
     if (req.files['navbarLogo'] && req.files['navbarLogo'].length > 0) {
@@ -152,7 +153,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
 
             const bannerAltText = bannerAltList[index];
             const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
-            bannerHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100 resposive_height img_top" width="800" height="700" alt="${projectName}-${bannerAltText}"></div>`;
+            bannerHTML += `<div class="${carouselItemClass}"><img src="image/${image.originalname}" class="d-block w-100 resposive_height img_top" width="800" height="700" alt="${bannerAltText}"></div>`;
         })
     }
     indexData = indexData.replace("{{BANNER_CAROUSEL_INDICATOR}}",bannerCarouselIndicatorHTML)
@@ -171,10 +172,11 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     // Add gallery images dynamically
     let galleryImagesHTML = '';
     let galleryCarouselIndicatorHTML = '';
+    const galleryImagesAltList = galleryImagesAlt.split(',').map(item => item.trim());
 
     if (req.files['galleryImages'] && req.files['galleryImages'].length > 0) {
         req.files['galleryImages'].forEach((image, index) => {
-            const galleryAltText = galleryImagesAlt[index];
+            const galleryAltText = galleryImagesAltList[index];
             // Check if it's the first image
             const carouselItemClass = index === 0 ? 'carousel-item active' : 'carousel-item';
 
@@ -183,7 +185,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
             galleryCarouselIndicatorHTML += carouselIndicator;
 
             galleryImagesHTML += `<div class="${carouselItemClass}">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Avant Heritage  Balcony">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="${galleryAltText}">
                 <title>${galleryAltText}</title>
                 <defs>
                     <clipPath id="gsl1">
@@ -191,7 +193,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                     </clipPath>
                     <text x="50%" y="50%" fill="#333" dy=".3em">${galleryAltText}</text>
                 </defs>
-                <image width="100%" height="100%" xlink:href="/image/${image.originalname}" clip-path="url(#gsl1)" alt="${projectName}-${galleryAltText}" />
+                <image width="100%" height="100%" xlink:href="/image/${image.originalname}" clip-path="url(#gsl1)" alt="${galleryAltText}" />
             </svg>
         </div>`;
         });
@@ -239,7 +241,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
                                 <text x="35%" y="50%" fill="#dee2e6" dy=".3em">${floorPlanText}</text>
                             </clipPath>
                         </defs>
-                        <image ${imageEffectStyle} width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${projectName}-${floorPlanAltText}" />
+                        <image ${imageEffectStyle} width="100%" height="100%" xlink:href="image/${image.originalname}" clip-path="url(#clip-path-${floorPlanText})"  alt="${floorPlanAltText}" />
                     </svg>
                     <div class="p-2 bg-success effetMoveGradient text-center aq">
                         <h5 class="card-title text-light">${floorPlanText}</h5>
@@ -259,7 +261,7 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     let mapNearbyHTML = "";
     mapNearbyList.forEach(nearBy => {
         mapNearbyHTML += `<div class="my-2" style="overflow-x:unset;">
-        <span class="dots"><i class="fa fa-circle"></i></span>${nearBy}</b>
+        <span class="dots"><i class="fa fa-circle"></i></span>${nearBy}
     </div>`;
     })
 
@@ -268,6 +270,8 @@ app.post('/generate-template', upload.fields([{ name: 'bannerImages'}, { name: '
     // Replace Rera image placeholders with uploaded image paths
     if (req.files['reraImg'] && req.files['reraImg'].length > 0) {
         indexData = indexData.replace('{{RERA_IMAGE}}', `image/${req.files['reraImg'][0].originalname}`);
+    } else{
+        indexData = indexData.replace('{{RERA_IMAGE}}', ' ');
     }
 
 
@@ -307,7 +311,7 @@ function appendFilesRecursively(archive, folderPath, basePath) {
         const filePath = path.join(folderPath, file);
         const relativePath = path.relative(basePath, filePath);
         const stats = fs.statSync(filePath);
-        if (stats.isFile() && file !== 'Default.aspx' && file !== 'Default.aspx.cs' && !filePath.endsWith('.css')) {
+        if (stats.isFile() && file !== 'Default.aspx' && file !== 'Default.aspx.cs' && file !== 'bt.css') {
             archive.file(filePath, { name: relativePath });
         } else if (stats.isDirectory()) {
             appendFilesRecursively(archive, filePath, basePath);

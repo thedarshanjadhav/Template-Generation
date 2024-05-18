@@ -190,7 +190,6 @@ export default function AdminPanel() {
             setTimeout(() => {
                 setSuccessMessage('');
             }, 3000);
-            setFormData(initialFormData);
         } catch (error) {
             setErrorMessage('Error generating template. Please try again.');
             setIsLoading(false);
@@ -410,6 +409,7 @@ export default function AdminPanel() {
                                             name='floorPlanImg'
                                             type="file"
                                             multiple
+                                            required
                                             onChange={handleChange}
                                         />
                                     </VStack>
@@ -446,7 +446,7 @@ export default function AdminPanel() {
                                 <Flex gap={4}>
                                     <VStack>
                                     <label>Gallery Images</label>
-                                    <input name="galleryImages" type="file" multiple onChange={handleChange} />
+                                    <input name="galleryImages" type="file" multiple required onChange={handleChange} />
                                     </VStack>
                                     <VStack>
                                         <label>Gallery Alt</label>

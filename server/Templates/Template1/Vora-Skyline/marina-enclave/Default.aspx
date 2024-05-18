@@ -17,13 +17,14 @@
 
  <style> :root{--colorPrimary:#528da3;--colorSecondary:#335470;--colorBtn:#ffffff}
 </style>
+</head>
 <body>
 
     <div class="col-md-12 col-lg-9 col-xl-9 col-xs-12 no-gutters" id="home">
         <header class="fixed-top"> 
             <div class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="" href="#home">
-                    <img width="150" height="48" src="{{NAVBAR_LOGO}}" class="logo p-1" alt="{{PROJECT_NAME}}-{{NAVBAR_ALT}}" >
+                    <img width="150" height="48" src="{{NAVBAR_LOGO}}" class="logo p-1" alt="{{NAVBAR_ALT}}" >
                 </a> 
                 <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" id="burger" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,11 +41,12 @@
                                 <a class="nav-link" href="#Floor_plan"><i class="fa fa-building" aria-hidden="true"></i>Floorplan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#Amenities"><i class="fa fa-cutlery font-weight-bold nav-icon" aria-hidden="true"></i> Amenities</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#gallery"><i class="fa fa-image"></i> Gallery</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Amenities"><i class="fa fa-cutlery font-weight-bold nav-icon" aria-hidden="true"></i> Amenities</a>
+                            </li>
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="#highlights"><i class="fa fa-road font-weight-bold nav-icon" aria-hidden="true"></i> Location</a>
                             </li>
@@ -62,11 +64,9 @@
         <div class="flex-row  position-relative no-gutter">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-
                     {{BANNER_CAROUSEL_INDICATOR}}
                 </ol>
                 <div class="carousel-inner">
-                
                     {{BANNER_IMAGES}}
                 </div>
             </div>
@@ -282,7 +282,7 @@
                     suits your needs and vision.</p>
                 <p>Government RERA Authorised Advertiser: Grassroot Properties</p>
                 <p>
-                    MAHA RERA Registration No: A51800022518
+                    MAHA RERA Registration No: A51800045744
                 </p>
                 <p>
                     Office Address : Unit No. 211, Atlanta Estate, Goregaon - Mulund Link Rd, ITT Bhatti, Hanuman Tekdi, Goregaon West, Mumbai, Maharashtra 400063
@@ -297,7 +297,7 @@
                         <p class="card-text" style="text-align:center;">
                             Project MahaRERA number is available on the website maharera.mahaonline.gov. in under registered projects.<br>RERA No : {{RERA_NO}} </p>
                         <div class="qrimgset" style="display: flex; justify-content: center; flex-wrap: wrap;">
-                            <img src="{{RERA_IMAGE}}" style="width:10% !important" alt="{{PROJECT_NAME}}-{{RERA_Alt}}" />
+                            <img src="{{RERA_IMAGE}}" style="width:10% !important" alt="{{RERA_Alt}}" />
                         </div>
             </div>      
         </div>
@@ -308,7 +308,7 @@
                     <a href="privacypolicy.html" target="_blank"> Privacy Policy || Terms & Conditions </a> <br>
                     <br>Disclaimer: We are an authorised marketing partner for this project. Provided content is given by respective owners and this website and content is for information purpose only and it does not constitute            
                     any offer to avail for any services. Prices mentioned are subject to change without prior notice and properties mentioned are subject to availability. You can expect a call, SMS or emails on details registered with us.
-                    <br>2023 &#169; Copyright - All Rights Reserved.
+                    <br>2024 &#169; Copyright - All Rights Reserved.
                 </p>
             </div>
         </div>
@@ -451,58 +451,6 @@
 <script src="/js/bootstrap.min.js"></script>
 
 
-
-
-<script>
-$( "#form" ).on( "submit", function(e) {
-     var dataString = $(this).serialize();
-     
-     $('#myBtn').prop('disabled', true);
-     $("#myBtn").prop('value', 'Please wait...');
-    
-     console.log(dataString); //return false;
-     
- 
-    $.ajax({
-      type: "POST",
-      url: "include/api.php",
-     // headers: {  'Access-Control-Allow-Origin': '*' },
-      data: dataString,
-      success: function () {
-         mobilelog();
-                 window.location.href = "thanks.php";
-
-      }
-    });
- 
-    e.preventDefault();
-  });
-</script>
-
-<script>
-$( "#rightform" ).on( "submit", function(e) {
-     var dataString = $(this).serialize();
-     
-     $('#myRightbtn').prop('disabled', true);
-     $("#myRightbtn").prop('value', 'Please wait...');
-    
-    // alert(dataString); return false;
- 
-    $.ajax({
-      type: "POST",
-      url: "include/api.php",
-     // headers: {  'Access-Control-Allow-Origin': '*' },
-      data: dataString,
-      success: function () {
-          mobilelog();
-      window.location.href = "thanks.php";
-
-      }
-    });
-    e.preventDefault();
-  });
-</script>
-
 <script type="text/javascript">
  const
   burger = document.querySelector("#burger"), 
@@ -530,101 +478,5 @@ a.forEach(el => el.addEventListener("click", function(e) {
 
 <script src="/js/fa_font.js"></script>
 
-<script>
-              document.getElementById('ocountry1').style.display="none";
-              document.getElementById('india1').style.display="block";
-              document.getElementById('india1').setAttribute("required", "");
-              document.getElementById('india1').setAttribute("name", "mobile");
-        
-         function selectedCountry1(sv){
-             
-              if(sv == "India+91"){
-              document.getElementById('ocountry1').style.display="none";
-              document.getElementById("ocountry1").removeAttribute("required"); 
-              document.getElementById('ocountry1').setAttribute("name","mobile");
-              document.getElementById("ocountry1").value = '';
-              document.getElementById('india1').style.display="block";
-              document.getElementById("india1").setAttribute("required", "");
-              document.getElementById('india1').setAttribute("name", "mobile");
-             
-          }
-          else{
-             document.getElementById('india1').style.display="none";
-             document.getElementById("india1").removeAttribute("required"); 
-              document.getElementById('india1').setAttribute("name", "mobile1");
-               document.getElementById("india1").value = '';
-             document.getElementById('ocountry1').style.display="block";
-             document.getElementById("ocountry1").setAttribute("required", "");
-             document.getElementById('ocountry1').setAttribute("name", "mobile");
-          }
-         }
-</script>
-<script>
-           document.getElementById('ocountry').style.display="none";
-           document.getElementById('india').style.display="block";
-           document.getElementById('india').setAttribute("required", "");
-           document.getElementById('india').setAttribute("name", "mobile");
-        
-         function selectedCountry(sv){
-              if(sv == "India+91"){
-              document.getElementById('ocountry').style.display="none";
-              document.getElementById("ocountry").removeAttribute("required"); 
-              document.getElementById('ocountry').removeAttribute("name", "mobile");
-              document.getElementById("ocountry").value = '';
-              document.getElementById('india').style.display="block";
-              document.getElementById("india").setAttribute("required", "");
-              document.getElementById('india').setAttribute("name", "mobile");
-             
-           }
-           else{
-             document.getElementById('india').style.display="none";
-             document.getElementById("india").removeAttribute("required"); 
-             document.getElementById('india').removeAttribute("name", "mobile");
-             document.getElementById("india").value = '';
-             document.getElementById('ocountry').style.display="block";
-             document.getElementById("ocountry").setAttribute("required", "");
-             document.getElementById('ocountry').setAttribute("name", "mobile");
-           }
-         }
-</script>
-   <script>
-  $( document ).ready(function() {
-      $('#enquire-now').click(function(){
-                $leadname0 = $("#enquire-now").attr('data-title');
-                 $("#lead").attr("value",$leadname0);
-                 
-    });
-    $('#download-brochure').click(function(){
-                $leadname1 = $("#download-brochure").attr('data-title');
-                 $("#lead").attr("value",$leadname1);
-    });
-     $('#DownloadBrochure_head').click(function(){
-                  $leadname2 = $("#DownloadBrochure_head").attr('data-title');
-                 $("#lead").attr("value",$leadname2);
-                
-            });
-            
-        $('#price_equ').click(function(){
-            
-                   $leadname3 = $("#price_equ").attr('data-title');
-                 $("#lead").attr("value",$leadname3);
-                 
-            });        
-
-        $('#costing').click(function(){
-            
-                  $leadname4 = $("#costing").attr('data-title');
-                 $("#lead").attr("value",$leadname4);
-            });       
-            
-            $('#floorplan').click(function(){
-            
-                  $leadname5 = $("#floorplan").attr('data-title');
-                 $("#lead").attr("value",$leadname5);
-            });          
-    });
-            
-               
-            </script>
 </body>
 </html>
