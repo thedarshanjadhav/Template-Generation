@@ -5,6 +5,7 @@
 
     <title>{{TITLE}}</title> 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="title" content="{{TITLE}}">
      <meta name="description" content='{{META_DESCRIPTION}}'>
      <meta name="keywords" content="{{META_KEYWORDS}}">
      <link rel="shortcut icon" href="{{TITLE_ICON}}" type="image/x-icon" />
@@ -32,19 +33,19 @@
                 <nav class="main-nav navbar-light bg-light"  id="main-nav">
                         <ul class="navbar-nav mr-auto text-center">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#about"><i class="fa fa-home nav-icon" aria-hidden="true"></i>{{NAVBAR_NAME}}</a>  
+                                <a class="nav-link" href="#about"><i class="fa fa-home nav-icon" aria-hidden="true" style="margin-right: 2px;"></i>{{NAVBAR_NAME}}</a>  
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#price"><span><b>&#8377;</b></span> Price</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#Floor_plan"><i class="fa fa-building" aria-hidden="true"></i>Floorplan</a>
+                                <a class="nav-link" href="#Floor_plan"><i class="fa fa-building" aria-hidden="true" style="margin-right: 2px;"></i>Floorplan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#gallery"><i class="fa fa-image"></i> Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#Amenities"><i class="fa fa-cutlery font-weight-bold nav-icon" aria-hidden="true"></i> Amenities</a>
+                                <a class="nav-link" href="#Amenities"  style="display: flex; align-items: center;"><img src="img/Pool_icon.svg" alt="" width="20px" height="20px" class="aminities-icon"/></i> Amenities</a>
                             </li>
                            
                             <li class="nav-item">
@@ -82,7 +83,7 @@
                 <div>
                     <ul class="list-unstyled padding" >
                         <p>
-                        <i class="fa fa-caret-left p-2"></i> Land Area : <span style="padding:5px;">{{LAND_AREA}}</span>
+                        <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">{{LAND_AREA}}</span>
                         <br />
                         <i class="fa fa-caret-left p-2"></i><span style="padding:5px;">{{RESIDENCIES}}</span>
                         <br />

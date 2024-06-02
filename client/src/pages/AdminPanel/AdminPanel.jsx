@@ -199,8 +199,6 @@ export default function AdminPanel() {
         }
     };
 
-    
-
     return (
         <>
             {/* Notification for success */}
@@ -226,7 +224,7 @@ export default function AdminPanel() {
                                     </VStack>
                                     <VStack>
                                         <label>Title Icon</label>
-                                        <input name="titleIcon" type="file" required onChange={handleChange}/>
+                                        <input name="titleIcon" type="file" onChange={handleChange}/>
                                     </VStack>
                                 </Flex>
                            

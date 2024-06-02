@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import grassrootLogo from '../../assets/image/Grassroot_Logo.png'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
 
 
@@ -11,6 +11,12 @@ export default function Navbar() { // Check if props are received correctly
   const [auth, setAuth] = useState({ token: localStorage.getItem('token') });
 
   const { state, dispatch } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!auth.token) {
+      navigate('/login');
+    }
+  }, [auth.token, navigate]);
 
   const handleLogout = () => {
     console.log("clicked");
