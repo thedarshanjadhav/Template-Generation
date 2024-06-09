@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="#about"><i class="fa fa-home nav-icon" aria-hidden="true" style="margin-right: 2px;"></i>{{NAVBAR_NAME}}</a>  
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#price"><span><b>&#8377;</b></span> Price</a>
+                                <a class="nav-link" href="#price"  style="display: flex; align-items: center;"><img src="img/Rs_icon.svg" alt="rs_icon" width="20px" height="17px" class="aminities-icon"/>Price</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#Floor_plan"><i class="fa fa-building" aria-hidden="true" style="margin-right: 2px;"></i>Floorplan</a>
