@@ -1,17 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import { useState } from "react";
 import { Show } from "@chakra-ui/react";
 
 export default function AuthLayout() {
-    const [auth] = useState({ token: localStorage.getItem('token') });
-
-
-
-    console.log("Auth token:", auth.token);
+    const token = localStorage.getItem('token');
 
     // Redirect to login if no token or token is 'null'
-    if (!auth.token || auth.token === 'null') {
+    if (!token || token === 'null') {
         return <Navigate to="/login" />;
     }
 
