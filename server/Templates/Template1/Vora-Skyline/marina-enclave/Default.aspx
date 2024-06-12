@@ -196,6 +196,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     {{FLOORPLAN}}
+                                </div>
                             </div>
                         </div>
                     <!-- /* Floorplan section End */ -->
