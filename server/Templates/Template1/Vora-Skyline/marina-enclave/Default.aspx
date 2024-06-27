@@ -286,9 +286,7 @@
                 <p>
                     MAHA RERA Registration No: A51800045744
                 </p>
-                <p>
-                    Office Address : Unit No. 211, Atlanta Estate, Goregaon - Mulund Link Rd, ITT Bhatti, Hanuman Tekdi, Goregaon West, Mumbai, Maharashtra 400063
-                </p>
+                
             </div>      
         </div>
 
